@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computed</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1>işlenmiş özelkikler computed</h1>
+    <p>methods içine yazıldığında tüm funclari değişkenleri kontrol eder</p>
+    <p>computed içine yazıldığında sadece bağlı bulunduğu funcionu kontrol ederek işlem yapar</p>
+    <button v-on:click="a++">a bir ekle</button>
+    <button v-on:click="b++">b bir ekle</button>
+    <p>{{ age }}</p>
+    <p>{{ aYaEkle }}</p>
+    <p>{{ bYeEkle }}</p>
+</div>
+    <script>
+        const {createApp}= Vue
+        createApp({
+            data() {
+                return {
+                    age:20,
+                    a:0,
+                    b:0,
+                }
+            },computed: {
+                aYaEkle : function  () {
+                    return this.age + this.a;
+                },
+                bYeEkle: function  () {
+                    return this.age + this.b;
+                }
+            },
+        }).mount("#app");
+    </script>
+    
+</body>
+</html>
