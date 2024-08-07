@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Şart işlemleri</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+</head>
+
+<body>
+
+    <!-- tıkllandığında hata ve başarılı olan buttonlarımızı aylarık
+     data içinde değişlenlerimizi belirttik  buttonlar içindeki clickteki 
+     değişkenlerimizi false olarak yazdık
+     p v-if ture yaparak  yaptık false olursa işlem hata verdi gözükmeyecek
+     if teki turedeki maksat error ve succese false vermiştik onunla ters ytaparak 
+     gösterip yada göstermeme durumu olacak  ifi false yaparsak işlem hata verdi yok oluyor
+    viflere erro  yada success verirsek  v-on:click="error = !error"  veridğimizden ötürü
+    toggle yaparak içinde error yada succes döndürmesi yapacak
+    -->
+    <div id="mountAdd">
+        <h1>şArt işlemleri</h1>
+        <button  v-on:click="error = !error">Hata toggle</button>
+        <button v-on:click="success = !success">işlem başarılı toggle</button>
+
+        <p v-if="false">İşem Hata verdi</p>
+        <p v-if="error">işlem Hata verdi</p>
+        <p v-if="success">işlem Başarılı</p>
+
+        <!-- v-show  ile ekrana   true yaparsam hata verdi yazısı verecek
+        buraya erorr ve succesi koayarak  false olarak datada aldığımız için
+         false olanları tıkladığımızda ture yaparak yazıyı göstericek yukarıdaki buttonlar ile  tetikliyoruz  
+        -->
+         <p v-show="error">işlem hata verdi</p>
+         <p v-show="success">işlem başarılı</p>
+
+         <!-- ****if ile  show arasındaki fark
+          if ile verdiğimizde Dom element olarak kaldırıyor
+          show ile verdiğimizde display none yaparak  gizliyor 
+          
+         -->
+
+    </div>
+
+
+
+
+
+    <script>
+
+        const { createApp } = Vue
+        createApp({
+            data() {
+                return {
+                    error: false,
+                    success: false,
+                }
+            }, methods: {
+
+            }, computed: {
+
+            },
+        }).mount("#mountAdd");
+
+
+    </script>
+
+</body>
+
+</html>
