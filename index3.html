@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input verisini hemen yazdırma</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+</head>
+<body>
+    <div id="deneme">
+        <label for="name">İsim</label>    
+        <input v-model="isim" type="text" />
+        <p>{{ isim }}</p>
+    </div>
+<script>
+    const {createApp} = Vue
+    createApp({
+        data() {
+            return {
+                isim:"",            
+            }
+        },methods: {
+            
+        },
+    }).mount("#deneme")
+</script>
+</body>
+</html>

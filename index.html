@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>linki ,yada veriyi inputa yada ekrana yazdırma</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+    <div id="ilk">
+        <h2>{{ deneme }}</h2>
+        <hr>
+        <hr>
+        <p><a :href="sitem">youtube</a></p>
+        <br>
+        <p><a v-bind:href="sitem">youtube v-bind: ile : nokta aynı işemi yapar</a></p>
+        <hr>
+        <p><a :href="site">Sitem</a></p>
+        <hr>
+        <input type="text" :value="deneme">
+        <input type="text" v-bind:value="deneme">
+        <hr>
+        <p v-html="tagliWebsite"></p>
+        <hr>
+        <p><a :href="site">deneme</a></p>
+        <input type="text" :value="deneme">
+    </div>
+
+    <script>
+        const { createApp } = Vue
+        createApp({
+            data() {
+                return {
+                    deneme: "vue 10x hızında",
+                    site: "https://www.youtube.com",
+                    tagliWebsite:"<a href='https://www.youtube.com' target='_blank'> Taglı şekilde link </a>"
+                }
+            },
+
+        }).mount("#ilk");
+    </script>
+    <script src="main.js"></script>
+
+</body>
+
+</html>

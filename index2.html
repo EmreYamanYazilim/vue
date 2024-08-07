@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prevent ile tıklanan linki engelleme</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <style>
+        #deneme {
+            width: 600px;
+            padding: 200px 20px;
+            text-align: center;
+            border: 1px solid #333;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="start">
+        <div v-on:mousemove="updateXY" id="deneme">
+            {{ x }} , {{ y }}
+        </div>
+        <a v-on:click.prevent="prependfun" href="http://www.youtube.com">Youtube</a>
+
+    </div>
+    <script>
+        const { createApp } = Vue
+        createApp({
+            data() {
+                return {
+                    x:0,
+                    y:0,
+                    link:"http://www.youtube.com",
+                }
+            }, methods: {
+                prependfun: function  () {
+                    alert('prevent engelleme');
+                }
+                
+            },
+        }).mount("#start");
+    </script>
+</body>
+
+</html>
