@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+<head>
+    <meta charset = "UTF-8">
+    <meta name    = "viewport" content = "width=device-width, initial-scale=1.0">
+    <title>Vue dinamik Css</title>
+    <script src = "https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <style>
+        span {
+            background: red;
+            display   : inline-block;
+            padding   : 10px;
+            color     : #fff;
+            margin    : 10px 0;
+        }
+
+        .aktif span {
+            background: green;
+        }
+
+        .ekstra span:after {
+            content    : "ekstra eklendi";
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id = "add">
+        <h1>Dinamik Css</h1>
+        <!-- red true dediğimizde clas içinde true yazdırır 
+         false dediğimiz için ble yazdırmaz
+          -->
+        <div :class = "{red: true, blue:false}"></div>
+        <!--returnda aktiflik değişkeni true diyerek
+         class içinde aktif: aktiflik yazdığımızda datadan ture yada false ise ona göre classı getirir
+        aktif
+         -->
+        <div :class = "{ aktif: aktiflik }">
+            <span>bu Divin içeriği Clas'a aktif ekleme</span>
+        </div>
+        <!-- v-on:click = "aktiflik = !aktiflik" ile beraber
+         tıklandığında true ise false yap flase ise ture yap
+         diyerek aktif clasını tıklandığında koyup kaldırabiliyoruz
+         dinamik olarak aktif pasif yapabiliriz -->
+
+        <div v-on:click = "aktiflik = !aktiflik" :class = "{ aktif: aktiflik }">
+            <span>bu Divin içeriği onclik ile aktif pasif yapma </span>
+        </div>
+
+        <div v-on:click = "aktiflik = !aktiflik" :class = "{ aktif: aktiflik }"><span>aktif pasif</span></div>
+
+        <button v-on:click = "ekstra = !ekstra">Ekstra</button>
+        <button v-on:click = "aktiflik = !aktiflik">Aktiflik</button>
+        <div    :class     = "degisikligiAlgila">
+            <span> Aktiflik ve ekstra alanı</span>
+        </div>
+
+    </div>
+
+
+    <!-- computed  ile fn içinde  retunr ederk aktif clası ile  yakayarak
+     onu yukarıdaki data içindeki aktifliği ona eşitleyerek  fn ile 
+     aktifle   aktif ekleme ekstra ile yazı yazdırma olayını yapalım 
+     ekstra eklendi yazısını yukarıda css içinde after ile yaptık -->
+
+
+    <script>
+        const { createApp } = Vue
+        createApp({
+            data() {
+                return {
+                    aktiflik: true,
+                    ekstra  : true,
+                }
+            }, methods: {
+
+            }, computed: {
+                degisikligiAlgila: function () {
+                    return {
+                        aktif : this.aktiflik,
+                        ekstra: this.ekstra,
+                    }
+                }
+
+            },
+        }).mount("#add");
+
+
+    </script>
+
+</body>
+
+</html>
