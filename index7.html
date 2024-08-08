@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Döngüler</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+</head>
+
+<body>
+    <!-- döngü için v-for kullanıoyurz
+         bunu herbir öğe için sırasıyla  basit döngü olarak yapacak
+         for içinde karkter in karakterler  dediğimizde karakteler içindekileri karakter değişkenine kaydedeicek
+         ekrana yazdırırken  for içinde yeni oluşturulan karkater değişkeni ile yazdıracağız 
+         li içinde karakter değişkenimizi artık süslü parantezler içinde ekrana yazdırabiliriz
+
+         
+         -->
+
+    <div id="dongu">
+        <h1>Döngü işlemleri</h1>
+        <ul>
+            <li v-for="karakter in karakterler"> {{ karakter }}</li>
+        </ul>
+
+        <!-- array  nesnenin içinde objeler oluşturarak alttaki gibi onlarada ulaşabiliriz -->
+        <ul>
+            <li v-for="ozellik in ozellikler">{{ ozellik.name }} - {{ ozellik.age }}</li>
+        </ul>
+        <!-- index değerini almak içinde ozellik değişkeni yanına parametreyi yazarak alabiliriz -->
+        <ul>
+            <li v-for="(ozellik, index) in ozellikler">{{ index }} - {{ ozellik.name }} - {{ ozellik.age }}</li>
+        </ul>
+
+        <!--  div içindede kullanarakta h3 p olarak gösterebiliriz  -->
+        <!-- hepsini ayrı ayrı div halinde döndürdü -->
+
+        <div v-for="(ozellik, index) in ozellikler">
+            <h3>{{ index }} . {{ ozellik.name }}</h3>
+            <p>{{ ozellik.age }}</p>
+        </div>
+
+        <!-- div yerine template kullanırsak  sıralı döngü div yerine         
+        bizim elimize vericeği  değer  h3 ve p  leri  ayrı ayrı döndürerek yapar
+        ayrı ayrı div göstermez 
+        -->
+
+        <template v-for="ozellik in ozellikler">
+            <h3>{{ index }}. {{ ozellik.name }}</h3>
+            <p>{{ ozellik.age }}</p>
+        </template>
+
+        <!-- ama biz bunu 1 tane divin içine koyarak sıralamak istiyoruz
+         yapacağımız template içinde div kullanmak istiyorsak
+         içerisine birtane div atıyoruz  -->
+
+        <template v-for="ozellik in ozellikler">
+            <div>
+                <h3>{{ index }}. {{ ozellik.name }}</h3>
+                <p>{{ ozellik.age }}</p>
+            </div>
+        </template>
+
+        <!-- obje içinde birden fazla  özellik olabilir
+         name, lastname, age,country, vb
+         biz bunları tek tek yazmak yerine bunlarıda bir döngü haline getirebiliriz
+        bu sefer ilk fordaki ozellik değişkeni içinden  key value diye yakalayacağımı söylerek
+        value ile obje içindeki değişkenin karşılığı  
+        key ile obje içindeki değişkenin adını alırız 
+        böylelikle  obje içinde oluşturulmuş değişken parametreleri kaçtane olursa olsun hepsini 2. döngümüzle yazdırırız
+        
+        dikkat !! 
+        hepsini alttaki örnekte  ayrı ayrı div içine yazdı bunu engellemek için
+        alttaki div yerine 2ç olarak template yazabiliriz
+
+        kullanım alanı key de name yazıyor ve bunu dil dosyalarımız içinden 
+        türkçeye çevirmek için  dil dosyamız language[key] dediğimizde
+        key'de yazan name yi dil dosyasına giderek karşılığını türkçe olarak verir
+         -->
+        <template v-for="ozellik in ozellikler">
+            <div v-for="(value, key) in ozellik">
+                <p>{{ key }} : {{ value }}</p>
+            </div>
+        </template>
+
+        <!--  bizim 4 tane objemiz var 
+          template tempalte içinde yaparsak  divlerin hepsini kaldıracak
+          biz  1 kişiye ait olan özellikleri name age lasname vb şeyleri
+          tek bir div içinde yazmak için  ilk döngüyü div olarak yapıyoruz
+          2. döngüyü template olarak veriyoruz
+          alttakı gibi genel kullanım -->
+
+        <div v-for="ozellik in ozellikler">
+            <template v-for="(value, key) in ozellik">
+                <p>{{ key }} : {{ value }}</p>
+            </template>
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        const { createApp } = Vue
+        createApp({
+            data() {
+                return {
+                    karakterler: ["mahmud", "Ladikli", "hasan", "muhiddin"],
+                    ozellikler: [
+                        { name: "mahmud", age: 99 },
+                        { name: "Ladikli", age: 89 },
+                        { name: "hasan", age: 77 },
+                        { name: "muhiddin", age: 66 },
+                    ]
+
+                }
+            },
+            methods: {
+
+            },
+        }).mount("#dongu");
+
+
+    </script>
+</body>
+
+</html>
