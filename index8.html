@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çoklu Vue Instance'ları</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+</head>
+
+<body>       
+    <!--
+    mount içinde id lerden yakaladığımız yerleri script içinde çoğaltarak 
+    app-one ve app-two yaptık   ikisinede script böülmünde title adını versekte
+    mount olarak farklı olduğu için bizim istediğimiz yazıyı bize veriyor
+
+    computed bölümündede sadecve  kendi bulunduğu yerde değiliklikleri kontrol ederek fn basar
+    -->
+
+    <div id="app-one">
+        <h2>{{ title }}</h2>
+        <p>{{ greet }}</p>
+
+    </div>
+    <div id="app-two">          
+        <h2>{{ title }}</h2>
+        <p>{{ greet }}</p>
+        <button v-on:click="twoInstance">twoInstance</button>
+    </div>
+
+    <!-- 2 instance appone ve apptwo birbirleri ile etkileşim halinde yönetmek için
+    öncelikle onları  değişkene vermemiz gerek var one =createApp yaparak 
+    değişkenlere vererek  veriyi yakalayabiliriz normalde 
+    data içindeki veriyi çekmek için this.dataiçindeki veri yaparak 
+    veriyi çekebiliyorduk  farklı instance içindeki veriyi çekebilmek içinde
+    verdiğimiz değişkenle  one.title yaparak ilk instance içindeki 
+    tittle verisini 2. instance verisi içinde yakalayıp yazdırabiliriz 
+    bunun için 2. instance içine  button koyarak 1. instanceyi değiştirelim  
+    
+    -->
+
+
+    <script>
+        const {createApp} = Vue
+        var one = createApp({
+            data() {
+                return {
+                    title:"1. isntance başlığı"
+                }
+            },computed: {
+                greet: function  () {
+                    return "app 1 baslığı";
+                }
+            },
+        }).mount("#app-one");
+
+        var two = createApp({
+            data() {
+                return {
+                    title:"2. instance başlığı "
+                }
+            },methods: {
+                twoInstance: function () {  
+                    one.title = "2. instance methods içinden buttonla fn ile 1. instance içindeki tittle değişti"
+                }
+            },
+            computed: {
+                greet: function  () {
+                    return "app 2 baslığı"
+                }
+            },
+        }).mount("#app-two");
+
+
+    </script>
+
+</body>
+
+</html>
