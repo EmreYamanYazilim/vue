@@ -1,0 +1,95 @@
+
+<h1>İç İçe Bileşenler  Lokal olarak verme</h1>
+
+<!-- 
+global olarak header.vue içindekini App.vue içinde göstermek için 
+işlemlerimizi  main.js içinde yapmıştık  
+şimdi lokal olarak bu işlemi header.vue içnde yapacağız
+akabinde App.vue içinde app-header tagı olarak  ekrana yazdıracağız 
+
+header.vue içinde data return bölümünde list olarak 
+oluşturduğumuz  değişkeni aynı şekilde App.vue içinde göstermek için
+App.vue içinde onu import etmeliyiz
+bunun için app.vue içinde
+script en  üstte improt ediyorz 
+import Header from './header.vue'
+
+akabinde App.vue içinde export default içinde en üstte 
+components: alanı içinde component olarak onu belirtmemiz gerek
+compoments: içine  öncelikle kullanıcağım tagın adını yani app-header
+akabinde import ettiğim Header diye isimlendirdim yeri yazıyoruz
+
+
+böylelikle App.vue içi böyle olacak 
+    
+<template>
+  <app-header></app-header>
+  <app-footer></app-footer>
+</template>
+
+<script>
+import Header from './header.vue'
+import Footer from './footer.vue'
+
+export default {
+  components: {
+    "app-header": Header,
+    "app-footer": Footer
+  },
+  data() {
+    return {
+
+    }
+  },
+}
+</script>
+
+
+header.vue içi
+
+<template>
+    <ul>
+        <li v-for="eleman in liste">
+            {{ eleman }}
+        </li>
+    </ul>
+</template>
+
+<script>
+export default{
+  data() {
+    return {
+        liste:["Anasayfa","Hakkımızda","Blog","İletişim"],
+    }
+  },
+}
+</script>
+
+
+
+footer.vue
+<template>
+    <ul>
+        <li v-for="foot in footerBolumu">
+            {{ foot }}
+        </li>
+    </ul>
+</template>
+
+<script>
+
+export default {
+    data() {
+        return {
+            footerBolumu: ["sözleşmeler", "iletişim", "vizyonumuz"]
+        }
+    },
+}
+</script>
+
+
+
+
+-->
+
+

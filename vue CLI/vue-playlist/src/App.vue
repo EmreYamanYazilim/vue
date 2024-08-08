@@ -1,10 +1,17 @@
-
 <template>
-        <app-header></app-header>
+  <app-header></app-header>
+  <app-footer></app-footer>
 </template>
 
 <script>
-export default{
+import Header from './header.vue'
+import Footer from './footer.vue'
+
+export default {
+  components: {
+    "app-header": Header,
+    "app-footer": Footer
+  },
   data() {
     return {
 
@@ -12,4 +19,3 @@ export default{
   },
 }
 </script>
-
