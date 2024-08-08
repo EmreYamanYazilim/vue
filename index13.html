@@ -1,0 +1,56 @@
+<h1>sıfırdan bir Vue</h1>
+
+
+<!-- 
+ herşey src klasörü içinde 
+ src içinde 
+ ana dizindeki index içinde src içindeki main.js entergre ediyor 
+ bir modül olarak entegre edilen main.js daha önce yaptımız createApp olarak
+ main.js içindeki   import './assets/main.css' e şuan gerek yok onu akldırıyoruz bize saf olarak 
+
+import { createApp } from 'vue'
+import App from './App.vue'
+
+createApp(App).mount('#app')
+
+olması kafidir  biz eşittir koyuyorduk burda From koyulmus tek fark o
+
+imort App from yaparak App.vue'yi dahil etmiş anlayacağımız bizim asıl ananımız App.vue
+App.vue bizim tüm uygulamayı cağırma , calıstırma ve her işlemi yapacağmız yer burası
+
+basitten anlamak için App.vue içindeki Template tagı dışındaki herşeyi siliyoruz  sadece o kalıyor içinide boşaltıyoruz
+bu template main.js içindeki import App from './App.vue'  sayesinde çalışıyor
+ve Components klasörümüz var  biz bunlarıda sileceğiz  
+components ve assets klasörümüzüde sildil
+src içinde sadece  Appvue ve main.js miz kaldı
+
+app içindeki template aslında bizim dahja önce yaptımız div id="add" olarak yaptıp  js tarafında mount'ta yakalayarak belirlediğimiz alana eşit geliyor
+App.vue içinde template altındada scriptimizi açarak içinde işlemlerimizi yapacağız 
+
+bu sadece  halimizde  tempaltede componentleri yöneteceğim bir alanımız  olacak
+scriptte js leri yönetebiliceğim bir alanımız olacak
+istersemde üsste cssleri yönetebiliceğiz
+<template>
+
+</template>
+
+<script>
+
+</script>
+genelde createApp altında  data oluşturarak devam ediyorduk burda main js de bu yok
+ve main jsden değilde burda Appvue içindeki script alanında  bu data işlemlerimizi yapacağız 
+export default yaparak obje açarak içerisinde datamızı atabiliriz
+<script>
+export default{
+  data() {
+    return {
+      
+    }
+  },
+}
+</script>
+
+NOT !!  ekranda yazdıracağımız herşeyi template içinde yazacağız 
+
+
+-->
