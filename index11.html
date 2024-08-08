@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referanslar</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <h2>referenslar</h2>
+        <input type="text" ref="icerik">
+        <button v-on:click="readRefs">Referansları Gör</button>
+
+        <div ref="icerik2"></div> 
+        <!-- log this.$refs yaptığımızda sayfadaki tüm referansları gösterir hem yukardakidaki
+         inputu  hemde div içindeki  referansları gösterir
+         output boş değişkeni ile  $refs içinde ototmatik olarak innerHTML merhaba dünya yazıyor-->
+        {{ output }}
+        <!-- innerHTML  hem div içine yazdırdım hemde istersek burada böyle değişken oldğu için yollayabiliyoruz  -->
+    </div>
+
+
+
+
+    <script>
+        const { createApp } = Vue
+        createApp({
+            data() {
+                return {
+                    output:"", // bu değişkeni yukarıdaki divdeyazdırmak için altta fn içinde yazarsak buttona tıkladığımızda onuda yazdırır
+
+                }
+            }, methods: {
+                readRefs: function () {
+                    // console.log(this.$refs);  this.$refs yaparak tüm referansları görebilirsin
+                    console.log(this.$refs.icerik.value);  // yaparak inputtaki ref içindeki icerik ile $refs içindeki parametre olan value ile beraber inputa yazılanı yakalarız
+                    this.output = this.$refs.icerik2.innerHTML="Emre YAMAN";
+                }
+            },
+        }).mount("#app");
+
+
+    </script>
+</body>
+
+</html>
