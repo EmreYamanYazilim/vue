@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bileşenler Components</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+</head>
+
+<body>
+
+    <div id="addOne">
+        <eleman></eleman>
+    </div>
+
+    <div id="addTwo">
+        <eleman></eleman>
+    </div>
+
+
+
+                <!-- one diye değişken içinde başlatarak sondaki ekranda yazdırmak için kullandığımız
+                 mountu  one.mount yaparak en sonda veerek createApp ve mount arasında başka işlemlerde yapabiliriz
+                 ayrı component oluşturarak ilk parametreye eleman 2.si ne obje acarak
+                 template valuesi olarak p tagı ve yazısını veriyruz bunu içieriye yazdırdığımızda
+                 div içinde   tag olarak eleman tagı oluşmuş olacak 
+                 id içinde <eleman></eleman> tagını yazarak  template içindeki veriyi ekrana vermiş olacağız 
+
+                 template içinde name değşkeni yollarsan returnda name tenımladığımızda ekrana verir
+                 eğer one  yerine two oluşturup  munt arasında iç içe koyarsak  global şekilde
+                 yine çalışır 2. yerde 
+                 -->
+    <script>
+        const { createApp } = Vue
+
+        var one = createApp({
+            data() {
+                return {
+
+                }
+            }
+        });
+        
+        one.component("eleman",
+            {
+                template:"<p>Ben Elemen Taginin içerisindeiym {{ name }} <button v-on:click='changeName'>isim değştir</button></p>",
+                data() {
+                    return {
+                        name:"Emre Yaman"
+                    }
+                },methods: {
+                    changeName:function  () {
+                        this.name = "Çarıklı Emre Yaman"
+                    }
+                },
+            }
+        )
+
+        one.mount("#addOne");
+
+        // 2. yöntem olarak componente elean diye bir değişken verelim
+        // bunu two içinde yazdırmk için createApp altında componets : { } objesi acaarak ilk paramtereye
+        // tagın adını 2. parametreye  eleman değişkenimizi veriyoruz
+
+        const eleman = {
+            template:"<p>Ben Elemen Taginin içerisindeiym {{ name }} <button v-on:click='changeName'>isim değştir</button></p>",
+                data() {
+                    return {
+                        name:"Emre Yaman"
+                    }
+                },methods: {
+                    changeName:function  () {
+                        this.name = "Çarıklı Emre Yaman"
+                    }
+                },           
+        }
+        // yukarıdaki oluşturduğumuz değişkenizmizi components vererek ilk parametre tag
+        // 2. parametrede değişkenin adı
+        // böylelikle biz elaman tagını kullanarak burada ne değer verdiysek template gibi dinamik olarak istediğimiz kadar yazabiliriz
+        // dikkat edilmesi gereken şey ilk parametre olan eleman yerine camelCase yazmamalıyız misal ilanVer yazarsak onu otomatik ilan-ver diye çevirir
+        var two = createApp({
+            components:{
+                "eleman": eleman
+
+            },
+            data() {
+                return {
+
+                }
+            }
+        }).mount("#addTwo");
+
+
+        
+    </script>
+
+</body>
+
+</html>
