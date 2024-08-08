@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Nested Components iç içe bileşenler</title>
+</head>
+<body>
+
+    <!-- 
+    küçük uygulamlarda tek bileşen olması olabilir 
+    ama büyük projelerde  birden fazla bileşenlerle kod tekrarı önleme ve 
+    parçalayarak daha kolay kondtorl edilebilir proje haline gelir
+    
+    global ve lokal tanımlama yapacağız  
+    öncelikle global olanı gösterelim
+    global için main.js içindeki yere daha önce yaptığımız gibi 
+    createApp ve mounta  değişken vererek ikisinin arasında işlemerimizi yaparak yapcağız 
+    
+    şimdi src içinde header.vue açalım 
+    template içinde ul li  içinde v-for ile döngü olarak  listeleyelim
+    
+<template>
+    <ul>
+        <li v-for="eleman in liste">
+            {{ eleman }}
+        </li>
+    </ul>
+</template>
+yaparak işlemlerimizi yaptık lokal olarak yapacaksak hader.vue içindejn 
+global olarak yapacaksak main.js den işlemlere devam edeceğiz 
+header.vue içindenki export default içinde data da liste diye array içinde header linklerini verdim 
+header vueyi main js içine import etmek zorundayız 
+import Header from './header.vue'; 
+Header takma isimiz  
+
+main js altına alta
+
+const app = createApp(App)
+// artık olaylarımızı bu arada yaparak global olarak işlemlerimizi yapacağız 
+// headervue importttan sonra app olarak component olarak göstermeliyoz
+app.component("app-header",Header) 
+// importaki ismi virgül sağına Header olarak virgülün solunda ilk belirttğimiz yerde header.vuede  app-header tagımız olacak 
+app.mount('#app')
+
+olacak
+
+header vue 
+içide 
+
+<template>
+    <ul>
+        <li v-for="eleman in liste">
+            {{ eleman }}
+        </li>
+    </ul>
+</template>
+
+<script>
+export default{
+  data() {
+    return {
+        liste:["Anasayfa","Hakkımızda","Blog","İletişim"],
+    }
+  },
+}
+</script>
+
+son olarak  App.vue içindeki görselide vermek için
+oraya template içine app-header vereceğiz 
+
+<template>
+        <app-header></app-header>
+</template>
+
+<script>
+export default{
+  data() {
+    return {
+
+    }
+  },
+}
+</script>
+
+böylelikle ekrana  global olarak  parçalara bölerek main js ile beraber  vermiş olacağız 
+
+
+    
+    
+    -->
+    
+</body>
+</html>
