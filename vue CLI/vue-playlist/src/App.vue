@@ -1,4 +1,5 @@
 <template>
+  <h1>style denemesi</h1>
   <app-header></app-header>
   <app-footer></app-footer>
   <app-nav></app-nav>
@@ -15,7 +16,7 @@ export default {
   components: {
     "app-header": Header,
     "app-footer": Footer,
-    "app-nav": Nav
+    "app-nav": Nav,
   },
   data() {
     return {
@@ -24,3 +25,9 @@ export default {
   },
 }
 </script>
+
+<style>
+h1 {
+  color:red;
+}
+</style>

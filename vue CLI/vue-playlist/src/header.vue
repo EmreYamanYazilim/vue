@@ -1,4 +1,5 @@
 <template>
+  <h1>Header bölündeki h1 scoped özelliği ile headera özel renk atanacak </h1>
   <ul>
     <li v-for="eleman in liste">
       {{ eleman }}
@@ -15,3 +16,9 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+h1{
+  color: green;
+}
+</style>
