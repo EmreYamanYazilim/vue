@@ -1,7 +1,7 @@
 <template>
   <app-header v-bind:eleman="liste"></app-header>
   <app-nav></app-nav>
-  <lokal-global v-bind:lokal="lg"></lokal-global>
+  <lokal-global v-bind:lokal="lg" v-on:basligiDegistir="updateTitle($event)"></lokal-global>
   <app-footer></app-footer>
 
 
@@ -22,6 +22,10 @@ export default {
     return {
       liste: ["Anasayfa", "Hakkımızda", "Blog", "İletişim"],
       lg:"primitif değişken",
+    }
+  },methods: {
+    updateTitle:function  (event) {
+      this.lg=event
     }
   },
 }

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div v-on:click="changeTitle">
         {{ lokal }}
     </div>
 </template>
@@ -16,6 +16,10 @@ export default{
     data() {
         return {
 
+        }
+    },methods: {
+        changeTitle: function () {  
+            this.$emit("basligiDegistir","alt bilesen tarafından değistirilen yazı")
         }
     },
 }

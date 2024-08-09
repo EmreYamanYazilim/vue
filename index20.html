@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Alt Bileşenden Ana Bileşene Veri Aktarımı</title>
+</head>
+
+<body>
+
+    <!-- 
+    altt bilesenlerden ana bilesene veri aktarabilmek için $emit parametresini kullanıyoruz 
+    Route companentten biz nasıl veriyi yollarken bind kullanıyorduk
+    biz yolladığımız verinin anlaşılabilmesi için von kullanacağız
+
+    lokal.vue  içinde  metods koyarak tıklandığı yerde this emit yaparak ilk paramtreye Appvue içine yollacağımız ve
+    von: ile belirteceğimiz değişken adını verdik basligiDeistir
+    methods: {
+        changeTitle: function () {  
+            this.$emit("basligiDegistir","alt bilesen tarafından değistirilen yazı")
+        }
+    },
+}
+    
+  app.vue içinde von ekleyerek  basligiDegistir  diye parametremizi lokal-global.vueden yakalyarak ve updateTitleyide App.vuede tanımlayarak devam ediyuz
+
+  <lokal-global v-bind:lokal="lg" v-on:basligiDegistir="updateTitle($event)"></lokal-global>
+
+    updateTitle olarak değişken oluşturarak içinde $event veriyoruz bu zorunlu o event ile tetikleyerek alacağız 
+    altta  appvue içinde methodsta updateTitle diyoruz ve içinde fn olutşurarak fn içinde event yazıyoruz 
+    o event updateTitle içindeki eventin tetikleneceği yer 
+
+     data() {
+    return {
+      lg:"primitif değişken",
+    }
+  },methods: {
+    updateTitle:function  (event) {
+      this.lg=event
+    }
+  },
+
+  primitif değişken yazan  yazıya tıkladığımızda  onu "alt bilesen tarafından değistirilen yazı"  bununla değiştirecek
+
+
+    -->
+    
+</body>
+</html>

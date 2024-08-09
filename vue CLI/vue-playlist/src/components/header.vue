@@ -1,6 +1,6 @@
 <template>
   <header>
-  <h1>Sayfamızın başlığı</h1>
+  <h1>{{ baslik }}</h1>
   <ul>
     <li v-for="liste in eleman">
       {{ liste }}
@@ -23,7 +23,7 @@ export default {
   },
   data() {
     return {
-
+        baslik:"Sayfa başlığı"
     }
   },
 }
