@@ -21,7 +21,7 @@ export default {
   data() {
     return {
       liste: ["Anasayfa", "Hakkımızda", "Blog", "İletişim"],
-      lg:"lokal ve glolabal iç içe   bu sayfada global kullanıldı main içinde ona göre const app = diye eşitlik verildi ve main içine app.components olarak bu sayfa belirtildi tagı belirlendi",
+      lg:"primitif değişken",
     }
   },
 }
