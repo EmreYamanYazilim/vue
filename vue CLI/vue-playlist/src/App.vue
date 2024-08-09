@@ -1,7 +1,7 @@
 <template>
-  <app-header></app-header>
+  <app-header v-bind:eleman="liste"></app-header>
   <app-nav></app-nav>
-  <lokal-global></lokal-global>
+  <lokal-global v-bind:lokal="lg"></lokal-global>
   <app-footer></app-footer>
 
 
@@ -20,7 +20,8 @@ export default {
   },
   data() {
     return {
-
+      liste: ["Anasayfa", "Hakkımızda", "Blog", "İletişim"],
+      lg:"lokal ve glolabal iç içe   bu sayfada global kullanıldı main içinde ona göre const app = diye eşitlik verildi ve main içine app.components olarak bu sayfa belirtildi tagı belirlendi",
     }
   },
 }

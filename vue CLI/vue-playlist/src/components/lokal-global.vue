@@ -1,15 +1,21 @@
 <template>
     <div>
-
-        {{ lg }}
+        {{ lokal }}
     </div>
 </template>
 
 <script>
 export default{
+    // props:[  //1. yöntem
+    //     'lokal'
+    // ],
+    props:{ //2. yöntem
+        lokal:String,
+        required:true
+    },
     data() {
         return {
-            lg:"lokal ve glolabal iç içe   bu sayfada global kullanıldı main içinde ona göre const app = diye eşitlik verildi ve main içine app.components olarak bu sayfa belirtildi tagı belirlendi"
+
         }
     },
 }

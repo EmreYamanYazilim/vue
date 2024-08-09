@@ -2,18 +2,28 @@
   <header>
   <h1>Sayfamızın başlığı</h1>
   <ul>
-    <li v-for="eleman in liste">
-      {{ eleman }}
+    <li v-for="liste in eleman">
+      {{ liste }}
     </li>
   </ul>
+    {{ liste }}
 </header>
 </template>
 
 <script>
 export default {
+  // props:[ //1. yöntem
+  //   'eleman'
+  // ],
+  props:{
+    eleman:{
+      type:Array,
+      required:true
+    }
+  },
   data() {
     return {
-      liste: ["Anasayfa", "Hakkımızda", "Blog", "İletişim"],
+
     }
   },
 }

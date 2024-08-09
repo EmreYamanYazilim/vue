@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Ana Bileşenden Alt Bileşenlere Veri Aktarımı - props</title>
+</head>
+<body>
+
+
+    <!-- 
+    ana bileşendeki return içindeki veriyi App.vue ye routamıza vermek yerine
+    App.vue içinde gösterip headerdaymış gibi aktarma olayı 
+     biz ne yapıorduk htmlleri v-bind yapardık ve attrebütlerini o bind ettiğimiz veri ile dolduruduk
+
+    bunun için App içinde returnda title diye değişkenimizi belirtir 
+    akabinde tempalte içinde header tagımız  içinde v-bind yaparak 
+    verimizi basabiliriz
+    app  template içinde içinde 
+      <app-header v-bind:eleman="liste"></app-header>
+    vererek 
+    altta data return'da ise liste  diye değişkenimizi belirttik
+    böylelikle biz header içine veriyi göndereceğiz ama 
+    header içindede export deful içinde en üstte porps: diye obje yada array olarak onu tanımlayacağız 
+    2 yöntemde  bize o sayfadaki bağlantımızı sağlar 
+    export default {
+        props:[ //1. yöntem
+            'eleman'        
+             ],
+            data() {
+
+    App vudeden biz elaman olarak  header içine App içindeki liste değişkenini yolladık
+    2. yöntem olarak { içinde}  obje olarak tanımlamaız zorunluluklarını ve tiplerini belirtebiliyoruz
+         props:{
+            eleman:{
+                type:String,
+                required:true
+            }
+        },
+
+
+
+
+
+
+
+
+
+
+        
+    -->
+    
+</body>
+</html>
