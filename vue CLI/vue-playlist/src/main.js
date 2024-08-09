@@ -2,7 +2,12 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 
+import lokalGlobal from './lokal-global.vue'
 
-createApp(App).mount('#app');
+
+const app = createApp(App)
+
+app.component("lokal-global",lokalGlobal)
 
 
+app.mount('#app');

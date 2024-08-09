@@ -2,6 +2,8 @@
   <app-header></app-header>
   <app-footer></app-footer>
   <app-nav></app-nav>
+  <lokal-global></lokal-global>
+
 </template>
 
 <script>
