@@ -2,7 +2,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 
-import lokalGlobal from './lokal-global.vue'
+import lokalGlobal from './components/lokal-global.vue'
 
 
 const app = createApp(App)

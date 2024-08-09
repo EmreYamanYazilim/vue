@@ -1,16 +1,16 @@
 <template>
-  <h1>style denemesi</h1>
   <app-header></app-header>
-  <app-footer></app-footer>
   <app-nav></app-nav>
   <lokal-global></lokal-global>
+  <app-footer></app-footer>
+
 
 </template>
 
 <script>
-import Header from './header.vue'
-import Footer from './footer.vue'
-import Nav from './nav.vue';
+import Header from './components/header.vue'
+import Footer from './components/footer.vue'
+import Nav from './components/nav.vue';
 
 export default {
   components: {
@@ -25,9 +25,3 @@ export default {
   },
 }
 </script>
-
-<style>
-h1 {
-  color:red;
-}
-</style>
