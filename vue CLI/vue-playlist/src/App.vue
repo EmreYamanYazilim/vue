@@ -1,15 +1,35 @@
 <template>
   <h1>
-    Slot'lar
+    Slot'lar üzerindek Css işlemleri
   </h1>
 
   <alt-bilesen>
-    <template #icerik>
-      <p>bu alt bilesene gönderilecek metindir</p>
+    asdasd
+    <template #form-header>
+      <h2>
+        Giriş Formu
+      </h2>
+      <p>Giriş yapabilmek için lütfen formu doldurun</p>
     </template>
-    <template #baslik>
-      <h2>bu alt bilesene gönderilecek baslıktır</h2>    </template>
+
+    <template #form-elements>
+      <label  for="email">E-mail : </label>
+      <input type="email" name="email" placeholder="E posta Adersinizi Giriniz">
+
+      <label for="password">Şifre : </label>
+      <input type="password" name="password" id="" placeholder="Şifrenizi Giriniz">
+    </template>
+
+    <template #form-controls>
+      <button>Giriş Yap</button>
+    </template>
   </alt-bilesen>
+
+
+
+
+  <h3 v-bind:class="$style.blue">App.vue içinde style ile  module ile css verme  </h3>
+  <h3 v-bind:class="xbilesen.green">Appvue içinde style ile  modüle takma isim vererek o takma isim ile  yakalayarak renk verme</h3>
 </template>
 
 <script>
@@ -26,10 +46,31 @@ export default {
   },
 }
 
-
-
 </script>
 
+<style scoped>
+:deep(input){
+ /* sadece alt bileşendeki kodları etkileyen  Css içinde :deep Kullanoyoruz  aksi taktirde  App.vue ana Rotemiz olduğu için tüm sayfayı etkiler  */
+}
+:global(input){
+  /* scoped olsada olmasada  her yerdeki inputu istediğimiz Css'i verir   */
+}
+</style>
+
+<style module>
+/* style içinde modüllerimiz var  bunu kullanabilmek için modül olarak belirtmemiz gerekecek 
+v-bind:class="$style.blue"  style içinde bir module olduğunu yakalamk için $style.blue diyerek bağlayarak veriyoruz */
+.blue{
+  color: blue;
+}
+</style>
+
+<style module="xbilesen">
+      /* v-bind:class = "xbilesen.green"   vererek önce  modüldeki takma ismi sonra içindeki cssi nokta ile birleştirerek veriyoruz*/
+  .green{
+    color: green;
+  }
+</style>
 
 
 
