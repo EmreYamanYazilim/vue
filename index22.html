@@ -1,0 +1,64 @@
+<h1>Slot'lar</h1>
+<!-- 
+
+bir bileşenden kendi içinde tanımlı alt bileşen
+html olarak veri gönderme 
+
+normalde alt.vue içinden  app.vue içine v-bind diyerek veri gönderebiliyorduk 
+ama şimdi html content göndermek istiyoruz bunun için
+
+şimdi alt-bilesen diye tag olusturduk  app içinde ama buraya biz ne yazarsak yazalım   alt.vueden yazmadığımnız için ekranda gösterilmeyecek
+bunu gösterebilmek için alt.vuede  template içinde slot tagını koyarsak 
+app içinde  alt-bilesen tagı içinde yazılanlarda alt tarafta yazılıyor gibi gözüküyor  ve ekrana yazı veriliyor 
+alt.vue içinde
+<template>
+    <slot></slot>
+</template>
+
+app vue içinde 
+template içinde 
+  <alt-bilesen>
+    <p>bu alt bilesene gönderilecek metindir</p>
+  <h2>bu alt bilesene gönderilecek baslıktır</h2>
+  </alt-bilesen>
+</template>
+
+<script>
+import altBilesen from './components/alt-bilesen.vue'
+
+export default {
+  components:{
+    "alt-bilesen": altBilesen
+  },
+  data() {
+
+
+  şimdi isimlendirmiş slotlarla istediğimiz tagı  yada içeriğin üzerinde etkili olarak slotları ayrı ayrı yollayabiliriz
+  yukarıda h2 ve p' taglarını beraber yolladık 
+  bunun için  pyi  yeni bir template tagı içine alarak içinde #icerik 
+  değerini verirsek  alt.vuede  slot name="icerik"> dersek sadece p tagını gösterir 
+    app.vue içindeki
+  <alt-bilesen>
+<template>
+    <slot name="icerik"></slot>
+    <slot name="baslik"></slot>
+</template>
+
+    alt.vue içinde
+<template>
+  <alt-bilesen>
+    <template #icerik>
+      <p>bu alt bilesene gönderilecek metindir</p>
+    </template>
+    <template #baslik>
+      <h2>bu alt bilesene gönderilecek baslıktır</h2>    </template>
+  </alt-bilesen>
+</template>
+
+
+
+
+
+
+
+-->
