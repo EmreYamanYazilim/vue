@@ -1,0 +1,72 @@
+<template>
+    <div id="add-blog"> <!-- idler sadece css için-->
+        <h2>yeni blog post ekelem formu</h2>
+        <form action="#">
+            <label for="title">Blog baslıgı </label>
+            <input type="text" v-model="title" required> <!-- vmodel tittle yazarak return içinde boş bıraktığımız  değişkeni altta tıranaklar içinde yazdırdırmamız için -->
+            <label for="content">blog iceriği</label>
+            <textarea v-model.lazy="content"></textarea>
+            <!-- modellerin metodları var misal v-model.lazy yaparksak  ben inputtan cıktıktan sonra ekrana yazdırır -->
+        </form>
+        <div id="preview">
+            <h3>blog ön izleme</h3>
+            <p>blog baslığı : {{ title }}</p> <!-- retunrda değişken olarak belirtik içini boş bıraktık v-model yaparak yazılan veriyi direk ekranra yazdırmasını isteyeceğiz-->
+            <p>blog içeriği : {{ content }}</p>
+            <p>blog içeriği2 : {{ blog.title2 }}</p>
+        </div>
+
+    </div>
+</template>
+
+
+<script>
+export default {
+    data() {
+        return {
+            title: "",
+            content: "",
+            //  burdakileri tek bir blog halinde yapmaamız daha doğru olur alttaki gibi blog modeli oluşturuyoruz  icerisnde değişkenlerimizi veriririz
+            blog:{
+            title2: "",
+            content2: ""
+            // bunu yazdırabilmek için şekklli parantezler içinde önce blog sonra değşken şeklinde  blog.title  yazmamız gerek 
+            // aynı şekilde {{ blog.title2 }}  ve  modal içindede direk title değil blog.title
+            }
+
+        }
+    },
+}
+</script>
+
+<style scoped>
+#add-blog * {
+    box-sizing: border-box;
+}
+
+#add-blog {
+    margin: 20px auto;
+    max-width: 500px;
+}
+
+label {
+    display: block;
+    margin: 20px 0 10px;
+}
+
+input[type="text"],
+textarea {
+    display: block;
+    width: 100%;
+    padding: 8px;
+}
+
+#preview {
+    padding: 10px 20px;
+    bottom: 1px dotted #ccc;
+    margin: 30px 0;
+}
+
+h3 {
+    margin-top: 10px;
+}
+</style>
