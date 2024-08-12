@@ -1,0 +1,91 @@
+<h1>Dinamik bileşenler</h1>
+
+
+<!-- 
+elimizde birden fazla sayfa var diyelim ve birden fazla olan sayfayı 
+bir sayfada çağırmak istiyoruz bunun için yeni sayfalar yani componentler oluşturuypruz 
+
+form-one.vue ve Two adında 2 component oluşturdum  bunların içine 
+alt-bilesen.vue bile bağlayarak    App. vue içine yazdığımız  entegre ettğimizi yerleri kopyalayıp  dinamik hala getirmek için kopyalıyoruz
+
+bu alttaki kod app  içindeki  kod yapımız alt-bilesen.vue içindekileri referenas larak  template içinde #from header yaparak yakaldaığımız alan
+
+<template>
+    <alt-bilesen>
+        <template #form-header>
+            <h2>
+                Giriş Formu
+            </h2>
+            <p>Giriş yapabilmek için lütfen formu doldurun</p>
+        </template>
+
+        <template #form-elements>
+            <label for="email">E-mail : </label>
+            <input type="email" name="email" placeholder="E posta Adersinizi Giriniz">
+
+            <label for="password">Şifre : </label>
+            <input type="password" name="password" id="" placeholder="Şifrenizi Giriniz">
+        </template>
+
+        <template #form-controls>
+            <button>Giriş Yap</button>
+        </template>
+    </alt-bilesen>
+</template>
+
+<script>
+import altBilesen from './alt-bilesen.vue'
+
+export default {
+    components: {
+        "alt-bilesen": altBilesen
+    },
+    data() {
+        return {
+
+        }
+    },
+}
+
+</script>
+
+
+
+tabi bu yeterli değil altındaki script bölümünüde 2 componente eklenmesi gerek çünki o scrip içinden import ederek alt-bilesen.vue içine bağlanıyor
+bileşeni öğprot ederek export default içinde components içinde  tagı ve  import namesini görmesi gerekyiro
+
+şimdi rtık  App vue içindeki  Template içindeki  alt-bilesen tagını kaldırabiliriz 
+
+ve form-one ve two yu import ederek componentslerde onların taglarını ve importları ile : belirterek  gösteriyoruz
+
+
+
+<template>
+  <form-one></form-one>
+  <form-two></form-two>
+</template>
+
+<script>
+import formOne from './components/form-one.vue'
+import formtwo from './components/form-two.vue'
+
+export default {
+  components: {
+    "form-one": formOne,
+    "form-two": formtwo
+  },
+  data() {
+    return {
+
+    }
+  },
+}
+
+   böylelikle  alt-bilesen.vue içiden referans larak App vue içindeki kodlaromızı form.vueler içne atarak onların taglarını altta belitiğimiz üzere
+  import ederek  çağırıp dinamikleştirdik 
+  
+
+
+  bunun devamına  App.vue içindeki notlarımdan bak
+
+-->
