@@ -1,0 +1,56 @@
+<h1>Checkbox ile İşlemler</h1>
+<!-- 
+
+div içinde idsi checkboxes ve içindeki checkboxlarımızı   birtane değişkenimizi tek bir öğenin içinde değişken olarak saklayabiiriz
+bunun  için return içinde daha önceden oluşturduğumuz  blog objesi  içinde  categories[] array olarak   guruplandırabiliriz bunu bir array yapıyoruz içine 
+burda bunu yıkarıda  input checkbox içindekileri bind edelim 
+v-model="blog.categories"  diyerek bind ettik şimdi o tiklerden herhangi birisi işaretlendiği zamanda
+categories arrayımız içinde  true yada false olarak  eklenecek
+bunu kontrol etmek için  {{ blog.categories }} yazdığımızda  checkboxlarımız içinde hangisine tik atarsak 
+o ekranda  array olarak yazdır  array içinde valuelerde ne verildiyse array içine string veri olarak bize verir 
+            <div id="checkboxes">
+                <label for="pey">Pey hay</label>
+                <input type="checkbox" value="peyhay" v-model="blog.categories">
+
+                <label for="pey">pey önce</label>
+                <input type="checkbox" value="peyon" v-model="blog.categories">
+
+                <label for="pey">ilk vahiy</label>
+                <input type="checkbox" value="vahiy" v-model="blog.categories">
+
+                <label for="pey">mekke fethi</label>
+                <input type="checkbox" value="fetih" v-model="blog.categories">
+            </div>
+            <p>{{ blog.categories }}</p>
+
+            script içi
+ export default {
+    data() {
+        return {
+            title: "",
+            content: "",
+            blog: {
+                title2: "",
+                content2: "",
+                categories:[
+                    BOŞ BIrakıyoruz ki  check ettiğimizde veri gelsin
+                ],
+            }
+
+        }
+
+
+şimdi li içidnde döngü olarak  check ettiklerimizi yazdıralım  
+v-for yaparak ilk parametreye takma isimi 2. paramtereye returndaki uzantıyı yazıyoruz
+böylelikle takma isimle  li içinde {{ takma isim }} yaparak döngü halinde check edilenleri ekrna yazdırabiliyoruz
+form dışında alttaki gibi döndürdük
+            <ul>
+                <li v-for="category in blog.categories">
+                    {{ category }}
+                </li>
+            </ul>
+
+checkbox içindeki  value içindeki veriyi ekrana yazdırır 
+
+
+-->

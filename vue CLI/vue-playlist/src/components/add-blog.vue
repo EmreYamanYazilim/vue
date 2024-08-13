@@ -3,14 +3,40 @@
         <h2>yeni blog post ekelem formu</h2>
         <form action="#">
             <label for="title">Blog baslıgı </label>
-            <input type="text" v-model="title" required> <!-- vmodel tittle yazarak return içinde boş bıraktığımız  değişkeni altta tıranaklar içinde yazdırdırmamız için -->
+            <input type="text" v-model="title" required>
+            <!-- vmodel tittle yazarak return içinde boş bıraktığımız  değişkeni altta tıranaklar içinde yazdırdırmamız için -->
             <label for="content">blog iceriği</label>
             <textarea v-model.lazy="content"></textarea>
             <!-- modellerin metodları var misal v-model.lazy yaparksak  ben inputtan cıktıktan sonra ekrana yazdırır -->
+
+
+            <!-- checkboxlarımız -->
+            <div id="checkboxes">
+                <label for="pey">Pey hay</label>
+                <input type="checkbox" value="peyhay" v-model="blog.categories">
+
+                <label for="pey">pey önce</label>
+                <input type="checkbox" value="peyon" v-model="blog.categories">
+
+                <label for="pey">ilk vahiy</label>
+                <input type="checkbox" value="vahiy" v-model="blog.categories">
+
+                <label for="pey">mekke fethi</label>
+                <input type="checkbox" value="fetih" v-model="blog.categories">
+            </div>
+            <ul>
+                <li v-for="category in blog.categories">
+                    {{ category }}
+                </li>
+            </ul>
+
+
+
         </form>
         <div id="preview">
             <h3>blog ön izleme</h3>
-            <p>blog baslığı : {{ title }}</p> <!-- retunrda değişken olarak belirtik içini boş bıraktık v-model yaparak yazılan veriyi direk ekranra yazdırmasını isteyeceğiz-->
+            <p>blog baslığı : {{ title }}</p>
+            <!-- retunrda değişken olarak belirtik içini boş bıraktık v-model yaparak yazılan veriyi direk ekranra yazdırmasını isteyeceğiz-->
             <p>blog içeriği : {{ content }}</p>
             <p>blog içeriği2 : {{ blog.title2 }}</p>
         </div>
@@ -20,22 +46,29 @@
 
 
 <script>
+
 export default {
     data() {
         return {
             title: "",
             content: "",
             //  burdakileri tek bir blog halinde yapmaamız daha doğru olur alttaki gibi blog modeli oluşturuyoruz  icerisnde değişkenlerimizi veriririz
-            blog:{
-            title2: "",
-            content2: ""
-            // bunu yazdırabilmek için şekklli parantezler içinde önce blog sonra değşken şeklinde  blog.title  yazmamız gerek 
-            // aynı şekilde {{ blog.title2 }}  ve  modal içindede direk title değil blog.title
+            blog: {
+                title2: "",
+                content2: "",
+                // bunu yazdırabilmek için şekklli parantezler içinde önce blog sonra değşken şeklinde  blog.title  yazmamız gerek 
+                // aynı şekilde {{ blog.title2 }}  ve  modal içindede direk title değil blog.title
+                categories:[
+
+                ],
             }
 
         }
     },
 }
+
+
+
 </script>
 
 <style scoped>
@@ -68,5 +101,18 @@ textarea {
 
 h3 {
     margin-top: 10px;
+}
+
+
+#checkboxes {
+    display: inline-block;
+
+}
+
+#checkboxes label {
+    display: inline-block;
+}
+#checkboxes input {
+    margin-right: 25px;
 }
 </style>
