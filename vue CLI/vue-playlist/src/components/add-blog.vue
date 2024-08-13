@@ -30,6 +30,16 @@
                 </li>
             </ul>
 
+            <!-- select bölümü -->
+            <h2>yazarlar</h2>
+            <select v-model="blog.yazar">
+                <option value="">Lütfen yazar seçin</option>
+                <option v-for="yazar in authors" v-bind:value="yazar">
+                    {{ yazar }}
+                </option>
+            </select>
+            <p>yazar : {{  blog.yazar }} </p>
+
 
 
         </form>
@@ -58,11 +68,15 @@ export default {
                 content2: "",
                 // bunu yazdırabilmek için şekklli parantezler içinde önce blog sonra değşken şeklinde  blog.title  yazmamız gerek 
                 // aynı şekilde {{ blog.title2 }}  ve  modal içindede direk title değil blog.title
-                categories:[
+                categories: [
 
                 ],
-            }
-
+            // normalde yazarlar ve authorsu blog içinde yapmamız daha güzel olurdu blog.yazarlar diyerek yaklayabilirdik
+            yazar:"",// bu değişkeni selec ten seçilenleri getirmesi içine veri depolamak için oluşturoyurum v-bind:value="" den verdiğim değeri  select içinde v-model ile yakalayarak  alıyorum
+            },
+            authors: [
+                "muhammed", "ahmet", "mehmed", "geylani", "muhiddin", "mahmud", "emre"
+            ], // yazarların databaseden gelen verisi olmadığı için veriyi burdan kendimiz oluşturuyoruz sonra bunuda v-model yaparak valueden alduğumız veriyi  yukarıda blog içindeki yazar boş değişkene atıyoruz
         }
     },
 }
@@ -112,6 +126,7 @@ h3 {
 #checkboxes label {
     display: inline-block;
 }
+
 #checkboxes input {
     margin-right: 25px;
 }

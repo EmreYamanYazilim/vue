@@ -1,0 +1,43 @@
+<h1>
+    Select İle İşlemler
+</h1>
+
+
+<!-- 
+
+return içinde değişken olarak verimizi oluşturduk 
+                authors: [
+                    "muhammed", "ahmet", "mehmed", "geylani", "muhiddin", "mahmud", "emre"
+                ], // yazarların databaseden gelen verisi olmadığı için veriyi burdan kendimiz oluşturuyoruz
+
+
+
+             select bölümü
+
+            <h2>yazarlar</h2>
+            <select>
+                <option value="">Lütfen yazar seçin</option>
+                <option v-for="yazar in authors" v-bind:value="yazar">
+                    {{ yazar }}
+                </option>
+            </select>
+
+for ile yazar yazarark döngü haline alarak option içinde yazdırıyoruz  ve aynı zamanda her değerin valuesini yakalayabilmek için
+v-bind:value="yazar"  diyerek seçtiğimiz değerin valuesinide artık yakalayabiliyoruz
+
+dikkat !!!
+şimdi select seçildi  seçileni tuttuğu yer yok bunu sağlamak için return içinde yazar:""  diyerek boş bir değişken vveriyoruz
+
+select içinde v-model yaparak blog.yazar  diyerek   elimizdeki  v-bind:value den aldığımız yazarı  return içindeki yazara aktarıyoruz
+
+            <h2>yazarlar</h2>
+            <select v-model="blog.yazar">
+                <option value="">Lütfen yazar seçin</option>
+                <option v-for="yazar in authors" v-bind:value="yazar">
+                    {{ yazar }}
+                </option>
+            </select>
+            <p>yazar : {{  blog.yazar }} </p>
+
+
+-->
