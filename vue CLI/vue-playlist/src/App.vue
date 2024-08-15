@@ -13,12 +13,14 @@
 import ShowBlog from './components/show-blog.vue'
 import AddBlog from './components/show-blog.vue'
 import HeaderIki from './components/headerheader.vue'
+import pratikBilgiler from "./components/pratik-bilgiler.vue"
 
 export default {
   components: {
     "show-blog": ShowBlog,
     "add-blog": AddBlog,
-    "app-headerIki": HeaderIki
+    "app-headerIki": HeaderIki,
+    "pratik-bilgiler": pratikBilgiler
   },
   data() {
     return {
