@@ -1,0 +1,38 @@
+<h1>
+    Arama İşlemleri - Custom Search Box
+</h1>
+
+
+
+<!-- 
+blog listemiz içinden sadece yazdığımız  harfler içinden  olanları yakalamak yada kısaltmak istiyorum diyelim bunu yapabilmek için
+harf yazabileceğim bir input oluşturuyorum
+içinde v-model="keyword" yaparak  return içinde boş değişken oluşturarak  properyiye bir daha yolluyoruz
+ şimdi ben input içine her yazdığımda returndaki keyword ototmatik olarak doluyor
+ şimdi bunu filitrelemesi için computed içinde filteredBlogs adında bir fn oluşturıyorum
+
+    computed: {
+        buyutComputed(){
+            return (title) => title.toUpperCase();
+        },
+        // filteredBlogs(){  // 1. yontem en temiz yöntem  yukarıdaki blogs arrayını this ile yakala filtrele takma isim olarak blog ver
+        //     return this.blogs.filter((blog) => {
+        //         return blog.title.match(this.keyword);  // blog.title.match ile getir neyi getir parantez içindeji this.keyword yaparaka ordaki yazdılarımızı getirerek onları getir dedik ve searchımızı yaptık 
+        //     })
+        // },
+        filteredBlogs(){ // 2. yöntem kısa yöntem aynı mantık filter içinde blog diye isimlendirerek return ile dödürerek blog.title.match yani  blog title içindekini bul (this.keyword içindekiyle) dedik
+             return this.blogs.filter(blog => blog.title.match(this.keyword)); // yukarıdaki blogs arrayı içindekini filtrele
+        }
+    },
+
+artık yukarıya blogs in diye çektiğimiz yerede  filteredBlogs yazarak for döngüsüne alıyoruz
+alttaki gibi
+        
+<div v-for="blog in filteredBlogs" class="single-blog">
+
+
+
+
+
+
+-->

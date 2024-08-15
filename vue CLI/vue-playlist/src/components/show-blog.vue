@@ -9,7 +9,8 @@ const vRainbow = { // vRainbow yazmamızdaki maksat h2 içinde v-rainbow manası
 <template>
     <div id="show-blogs">
         <h1>Tüm blog Gönderileri</h1>
-        <div v-for="blog in blogs" class="single-blog">
+        <input type="text" placeholder="Bloglarda ara" v-model="keyword" >
+        <div v-for="blog in filteredBlogs" class="single-blog">
              <h2 v-rainbow>{{ blog.id }} - {{ blog.title.toUpperCase() }}</h2> <!-- 1. yöntem olarak yaparak yazıları büyütebiliyirz -->
             <h2 v-rainbow>{{ blog.id }} - {{ buyut(blog.title) }}</h2> <!-- 2.yöntem olarak  methods içinde bir metod kllanarak yapabliriz ve blog.title'yi içinde gösteririz-->
             <h2 v-rainbow>{{ blog.id }} - {{ buyutComputed(blog.title) }}</h2> <!-- 3.yöntem  olarak computed içinde fn belireterek  retun dönerek dönücek olanı yakalamsı için title arrow vererek touppercase yapabiliriz   -->
@@ -24,6 +25,7 @@ export default {
     data() {
         return {
             blogs: [],
+            keyword:""
 
         }
     },
@@ -35,6 +37,14 @@ export default {
     computed: {
         buyutComputed(){
             return (title) => title.toUpperCase();
+        },
+        // filteredBlogs(){  // 1. yontem en temiz yöntem  yukarıdaki blogs arrayını this ile yakala filtrele takma isim olarak blog ver
+        //     return this.blogs.filter((blog) => {
+        //         return blog.title.match(this.keyword);  // blog.title.match ile getir neyi getir parantez içindeji this.keyword yaparaka ordaki yazdılarımızı getirerek onları getir dedik ve searchımızı yaptık 
+        //     })
+        // },
+        filteredBlogs(){ // 2. yöntem kısa yöntem aynı mantık filter içinde blog diye isimlendirerek return ile dödürerek blog.title.match yani  blog title içindekini bul (this.keyword içindekiyle) dedik
+             return this.blogs.filter(blog => blog.title.match(this.keyword)); // yukarıdaki blogs arrayı içindekini filtrele
         }
     },
     created() { // henüz işlem created olmadan önce işlemi yapmak için  get işleminde  fetch'i burda kullanyoruz
