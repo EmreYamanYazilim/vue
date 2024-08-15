@@ -1,10 +1,10 @@
- import { createRouter, createWebHashHistory } from "vue-router"; // yüklediğimiz yeri çağırıyoruz {} içindede 
+ import { createRouter, createWebHistory } from "vue-router"; // yüklediğimiz yeri çağırıyoruz {} içindede 
 
  import showBlog from "./components/show-blog.vue"; // routelerini yayınlayacağımız yerleri import ediyoruz
  import addBlog from "./components/add-blog.vue";
 
  const router = createRouter({ // linklerini belirtmek için eklememizi yapıyoruz
-     history: createWebHashHistory(),
+     history: createWebHistory(),
      routes: [
          { path: "/", component: showBlog },
          { path: "/ekle", component: addBlog }
