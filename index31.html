@@ -1,0 +1,33 @@
+<h1>Filitreler</h1>
+
+<!-- 
+1. yöntem
+misal h2 de tüm başlıkları büyük harfle yazmak istiyoruz bununiçin
+ {{  blog.title.toUpperCase() }} diyerek yazdırabiliriz
+
+2. yöntem
+buyut: adında bir method olşturyoruz  ve yanına fn veriyoruz
+parametre olarak title veriyoruz  {{ buyut(blog.title) }} şeklinde yapabiliyoruz
+
+
+
+3. yöntem
+şimdi şuan biz bir fetch ile veri çekiyoruz bununla gelen veri üzxerinden değişiklik yapıyoruz
+değişen data üzerinde daha  elverişli olabiliyor coputed: oda bir ojeydi 
+
+coputed yazarak fn olarak bunu gösterek  retunr ederek return içinden okla gösterek titleyi uper case yaparak  yine {{ buyutCoputed(blog.title) }} yaparak büyütebiliriz
+
+
+diğer yöntemde search barımız var ve bunu her sayfada farklı farklı compluted  mi ayarlayacağız 
+hayır bunu için main.js içinde  global filitre yapabiliz  
+main js  içinde create app imizi  const ile ayırıyoruz
+
+app.config.globalProperties.$filters={
+    congif içinde globel propertiesleri  burdan yapıyoruz  bunu fiters adnda bir obje oluşturuyouz
+    
+    filterimiz bizim heryerde vereceğimiz bir objemiz oldu 
+    içinede  istediğimiz kadar fn oluşturabiliriz 
+    
+
+
+-->
