@@ -1,8 +1,16 @@
+<script setup>
+const vRainbow = { // vRainbow yazmamızdaki maksat h2 içinde v-rainbow manasında yazılabilmesi içindir  camelCase ile yazılınca küçük harf ile büyük harf arasında tre olacak şejkilde vue anlıyor
+    mounted: (el) => {// objem mounted olduğu zmanda  rainbow elelemntin styleinerenk olarka rastgele sayı ver  string içinde göster slice ile 6 hanesini alarak
+        el.style.color = '#'+Math.random().toString().slice(2,8)
+    }
+}
+</script>
+
 <template>
     <div id="show-blogs">
         <h1>Tüm blog Gönderileri</h1>
         <div v-for="blog in blogs" class="single-blog">
-            <h2>{{ blog.id }} - {{ blog.title }}</h2>
+            <h2 v-rainbow>{{ blog.id }} - {{ blog.title }}</h2>
             <p>{{ blog.body }}</p>
         </div>
     </div>
