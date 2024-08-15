@@ -14,7 +14,9 @@ const vRainbow = { // vRainbow yazmamızdaki maksat h2 içinde v-rainbow manası
              <h2 v-rainbow>{{ blog.id }} - {{ blog.title.toUpperCase() }}</h2> <!-- 1. yöntem olarak yaparak yazıları büyütebiliyirz -->
             <h2 v-rainbow>{{ blog.id }} - {{ buyut(blog.title) }}</h2> <!-- 2.yöntem olarak  methods içinde bir metod kllanarak yapabliriz ve blog.title'yi içinde gösteririz-->
             <h2 v-rainbow>{{ blog.id }} - {{ buyutComputed(blog.title) }}</h2> <!-- 3.yöntem  olarak computed içinde fn belireterek  retun dönerek dönücek olanı yakalamsı için title arrow vererek touppercase yapabiliriz   -->
-            <h2 v-rainbow>{{ blog.id }} - {{  $filters.buyutFilters(blog.title) }}</h2> 4. yöntem olarak global olarak main.js içiden config.globalProperties. yaparak dolar işareti ile bir obje belirledik ve bu obje içinde fn yaparak bunu return ettirek bu return sonucunda nye yapmak istediğimizi gösterdik  ve yanda parantez içinde return eden değişkenimizi yazarak  global olarak her yerde kullanabileceğimiz büyütme işlemini yapabiliriz 
+            <router-link v-bind:to=" '/blog/' + blog.id"><h2  v-rainbow>{{ blog.id }} - {{  $filters.buyutFilters(blog.title) }}</h2></router-link>  <!-- 4. yöntem olarak global olarak main.js içiden config.globalProperties. yaparak dolar işareti ile bir obje belirledik ve bu obje içinde fn yaparak bunu return ettirek bu return sonucunda nye yapmak istediğimizi gösterdik  ve yanda parantez içinde return eden değişkenimizi yazarak  global olarak her yerde kullanabileceğimiz büyütme işlemini yapabiliriz  -->
+            <!--  v-bind ile değişkenim olan blog.id yakalamak için verdim to zaten url alanıdır "" içinde  tek tırnak vererek ana alanı  +  ile değişkenimizi verdik böylelikle dinamik oldu
+            linki tıklana bilir hale getirmek için vbind ve link haline getirebilmek için router-link kullnarak to dan url göstereceğim -->
             <p>{{ blog.body }}</p>
         </div>
     </div>
