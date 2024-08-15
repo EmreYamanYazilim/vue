@@ -14,13 +14,15 @@ const vRainbow = { // vRainbow yazmamızdaki maksat h2 içinde v-rainbow manası
              <h2 v-rainbow>{{ blog.id }} - {{ blog.title.toUpperCase() }}</h2> <!-- 1. yöntem olarak yaparak yazıları büyütebiliyirz -->
             <h2 v-rainbow>{{ blog.id }} - {{ buyut(blog.title) }}</h2> <!-- 2.yöntem olarak  methods içinde bir metod kllanarak yapabliriz ve blog.title'yi içinde gösteririz-->
             <h2 v-rainbow>{{ blog.id }} - {{ buyutComputed(blog.title) }}</h2> <!-- 3.yöntem  olarak computed içinde fn belireterek  retun dönerek dönücek olanı yakalamsı için title arrow vererek touppercase yapabiliriz   -->
-            <h2 v-rainbow>{{ blog.id }} - {{  $filters.buyutFilters(blog.title) }}</h2> <!-- 4. yöntem olarak global olarak main.js içiden config.globalProperties. yaparak dolar işareti ile bir obje belirledik ve bu obje içinde fn yaparak bunu return ettirek bu return sonucunda nye yapmak istediğimizi gösterdik  ve yanda parantez içinde return eden değişkenimizi yazarak  global olarak her yerde kullanabileceğimiz büyütme işlemini yapabiliriz  -->
+            <h2 v-rainbow>{{ blog.id }} - {{  $filters.buyutFilters(blog.title) }}</h2> 4. yöntem olarak global olarak main.js içiden config.globalProperties. yaparak dolar işareti ile bir obje belirledik ve bu obje içinde fn yaparak bunu return ettirek bu return sonucunda nye yapmak istediğimizi gösterdik  ve yanda parantez içinde return eden değişkenimizi yazarak  global olarak her yerde kullanabileceğimiz büyütme işlemini yapabiliriz 
             <p>{{ blog.body }}</p>
         </div>
     </div>
 </template>
 
 <script>
+import mixinsss from '../mixins'
+
 export default {
     data() {
         return {
@@ -37,14 +39,6 @@ export default {
     computed: {
         buyutComputed(){
             return (title) => title.toUpperCase();
-        },
-        // filteredBlogs(){  // 1. yontem en temiz yöntem  yukarıdaki blogs arrayını this ile yakala filtrele takma isim olarak blog ver
-        //     return this.blogs.filter((blog) => {
-        //         return blog.title.match(this.keyword);  // blog.title.match ile getir neyi getir parantez içindeji this.keyword yaparaka ordaki yazdılarımızı getirerek onları getir dedik ve searchımızı yaptık 
-        //     })
-        // },
-        filteredBlogs(){ // 2. yöntem kısa yöntem aynı mantık filter içinde blog diye isimlendirerek return ile dödürerek blog.title.match yani  blog title içindekini bul (this.keyword içindekiyle) dedik
-             return this.blogs.filter(blog => blog.title.match(this.keyword)); // yukarıdaki blogs arrayı içindekini filtrele
         }
     },
     created() { // henüz işlem created olmadan önce işlemi yapmak için  get işleminde  fetch'i burda kullanyoruz
@@ -70,6 +64,8 @@ export default {
 
             });
     },
+    mixins: [mixinsss],
+    
 }
 </script>
 
