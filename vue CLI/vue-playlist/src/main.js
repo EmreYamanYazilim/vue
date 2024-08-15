@@ -1,6 +1,7 @@
 
 import { createApp } from 'vue'
 import App from './App.vue'
+import router from './routes' // routes.js import ediyoruz
 
 import lokalGlobal from './components/lokal-global.vue'
 
@@ -15,4 +16,5 @@ app.config.globalProperties.$filters={ // config içinden globpal preperti olara
     }
 }
 
+app.use(router);// routeleri ekliyoruz
 app.mount('#app');

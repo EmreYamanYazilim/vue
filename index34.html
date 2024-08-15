@@ -1,0 +1,48 @@
+<h1> Route İşlemleri</h1>
+<!-- 
+urlerden sayafaları çağırma   vue router  olarak  vue içinde install etmemiz gerekiyor 
+projeyi kuraraken onu install etmedik şimdi edeceğim projemizi durdurarak 
+nmpm install vue-router --save   diyoruz  save dememizdeki  amac depences  etmemiz packages içine kaydetsin
+
+normalde unu main js  içinde yapabiliriz ama birden fazla route olacağı zamanda bunun için routes.js oluşturuyoruz
+
+2 yöntemimiz var hhash metodu  diğeri history metodu 
+hact metodu sayfanın bir yerden bir yere gidiyormuş gibi olur  tek sayfalı bir sitesniz vasa yapılabilir ama çok sayfalılar için history  kullanılmalıdır
+
+1. yontem hash
+
+import ediyoruz 
+
+routes.js yaptık
+ import { createRouter, createWebHashHistory } from "vue-router"; // yüklediğimiz yeri çağırıyoruz {} içindede 
+
+ import showBlog from "./components/show-blog.vue"; // routelerini yayınlayacağımız yerleri import ediyoruz
+ import addBlog from "./components/add-blog.vue";
+
+ const router = createRouter({ // linklerini belirtmek için eklememizi yapıyoruz
+     history: createWebHashHistory(),
+     routes: [
+         { path: "/", component: showBlog },
+         { path: "/ekle", component: addBlog }
+     ]
+ });
+
+ export default router // bu tanımladıklarımızı göstermesi için routaları tanıtmak için bu kodu kullanıyoruz
+
+main.js içine eklemelerimizi yaparak 
+
+
+componentler içindeki tagları yazmak yerine artık bu tagı yazıyoruz hepsini gösteriyor 
+<template>
+  <div>
+<router-view></router-view>   
+</div>
+</template>
+
+
+
+
+
+
+
+-->

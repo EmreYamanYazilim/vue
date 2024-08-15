@@ -1,5 +1,7 @@
 <template>
-  <show-blog></show-blog>
+  <div>
+<router-view></router-view>      <!--  componentler içindeki tagları yazmak yerine artık bu tagı yazıyoruz hepsini gösteriyor -->
+  </div>
 </template>
 
 
@@ -7,10 +9,12 @@
 <script>
 
 import ShowBlog from './components/show-blog.vue'
+import AddBlog from './components/show-blog.vue'
 
 export default {
   components: {
-    "show-blog": ShowBlog
+    "show-blog": ShowBlog,
+    "add-blog": AddBlog
   },
   data() {
     return {
