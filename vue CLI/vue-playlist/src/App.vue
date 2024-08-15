@@ -1,6 +1,8 @@
 <template>
   <div>
-<router-view></router-view>      <!--  componentler içindeki tagları yazmak yerine artık bu tagı yazıyoruz hepsini gösteriyor -->
+    <app-headerIki></app-headerIki>
+    <router-view></router-view>
+    <!--  componentler içindeki tagları yazmak yerine artık bu tagı yazıyoruz hepsini gösteriyor -->
   </div>
 </template>
 
@@ -10,11 +12,13 @@
 
 import ShowBlog from './components/show-blog.vue'
 import AddBlog from './components/show-blog.vue'
+import HeaderIki from './components/headerheader.vue'
 
 export default {
   components: {
     "show-blog": ShowBlog,
-    "add-blog": AddBlog
+    "add-blog": AddBlog,
+    "app-headerIki": HeaderIki
   },
   data() {
     return {
@@ -25,8 +29,7 @@ export default {
 
 </script>
 
-<style>
-</style>
+<style></style>
 
 
 
