@@ -1,5 +1,7 @@
 <template>
   <div>
+    <Form></Form>
+
     <cea  @cleann="temizle">asd</cea> <!-- yeni oluşturduğum tag ile cleannn eventi oluşturdum bu eventi biz cea.vue içinden emit ile fırlatarak yakaladım  ve temizle adını verdim App.vue içinde moethods içinde
     bu onu yeni bir fn olarak tanımlayaraak refs vererek ref icerigi yakaladım ve silmesini sağladık-->
     <input type="text" ref="icerik">
@@ -22,6 +24,7 @@ import HeaderIki from './components/headerheader.vue'
 import pratikBilgiler from "./components/pratik-bilgiler.vue"
 import Propsss from "./components/propsss.vue"
 import cea from './components/component-event-aktarim.vue'
+import Form from './components/form.vue'
 
 export default {
   components: {
@@ -30,7 +33,8 @@ export default {
     "app-headerIki": HeaderIki,
     "pratik-bilgiler": pratikBilgiler,
     Propsss, // direk olarak  components içinden imiport ettiğimiz  adı verebiliriz takma at yukarıdakiler gibi bu direk o form öncesindeki takma adımızla yukarıda tag açabiliyoruz
-    cea
+    cea,
+    Form
   },
   data() {
     return {
