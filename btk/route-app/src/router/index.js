@@ -25,6 +25,7 @@ const router = createRouter({
     {
       path: '/studentx/:id', // idsini yakalamak pathtan gösteriyoruz
       name: 'sutudentinfo',
+      props: true, // bunu sadece sayfada bind edeceğimiz veriyi yazdırırken  data yerine  props:[] içinde  verdiğimiz takma isimle verebiliriz
       component: () => import('@/views/StudentsInfo.vue')
     }
   ]
