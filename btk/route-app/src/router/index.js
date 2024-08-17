@@ -27,7 +27,16 @@ const router = createRouter({
       name: 'sutudentinfo',
       props: true, // bunu sadece sayfada bind edeceğimiz veriyi yazdırırken  data yerine  props:[] içinde  verdiğimiz takma isimle verebiliriz
       component: () => import('@/views/StudentsInfo.vue')
-    }
+    },
+    {
+      path: '/stude',
+      redirect: '/studentx' // eğerki eksik yazım yaptı studentx yerine stude yazd yinede bizi bu sayfaya yönlendirmesi için  redirect kullanıyoruz
+    },
+    {
+      path: '/:catchAll(.*)', // herşeyi yakala dedim
+      name: 'notFound',
+      component: () => import('@/views/bulunamadiSayfasi.vue')
+    },
   ]
 })
 
