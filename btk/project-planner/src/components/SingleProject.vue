@@ -4,7 +4,7 @@
             <h2 @click="showDetails = !showDetails">{{ project.title }}</h2>
             <div class="icons">
                 <span class="material-icons">edit</span>
-                <span class="material-icons">delete</span>
+                <span @click="deleteProject" class="material-icons">delete</span>
                 <span class="material-icons">check</span>
             </div>
         </div>
@@ -19,10 +19,18 @@ export default {
     props: ['project'],
     data() {
         return {
-            showDetails: false
-        }
+            showDetails: false,
+            uri: 'http://localhost:3000/projects/' + this.project.id, // dinamik yapmak için burdan verdim props içinden this ile projecti yakalayarak idsini alıyorum
+        };
+    }, methods: {
+        deleteProject() {
+            //this ile returndan uri çekerek yapacağım methodu bbelirtiyorum
+            fetch(this.uri, { method: "DELETE" })
+            .then(() => this.$emit('delete', this.project.id));
+            // emit ile delete eventi ile Home.vueye işlem yapılan id verdim
+        },
     },
-}
+};
 </script>
 
 <style scoped>
@@ -38,17 +46,20 @@ export default {
 h2 {
     cursor: pointer;
 }
+
 .actions {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 .material-icons {
     font-size: 24px;
     margin-left: 10px;
     color: #bbb;
     cursor: pointer;
 }
+
 .material-icons:hover {
     color: #616060;
 }

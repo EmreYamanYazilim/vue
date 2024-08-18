@@ -1,24 +1,24 @@
 {
-    "projects": [
-        {
-            "id": 1,
-            "title": "Project 1",
-            "details": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta non ut, placeat ducimus, voluptates quis repellendus sint, repudiandae dignissimos fuga aperiam laborum repellat est quia nemo explicabo et velit voluptatibus!"
-        },
-        {
-            "id": 2,
-            "title": "Project 2",
-            "details": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta non ut, placeat ducimus, voluptates quis repellendus sint, repudiandae dignissimos fuga aperiam laborum repellat est quia nemo explicabo et velit voluptatibus!"
-        },
-        {
-            "id": 3,
-            "title": "Project 3",
-            "details": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta non ut, placeat ducimus, voluptates quis repellendus sint, repudiandae dignissimos fuga aperiam laborum repellat est quia nemo explicabo et velit voluptatibus!"
-        },
-        {
-            "id": 4,
-            "title": "Project 4",
-            "details": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta non ut, placeat ducimus, voluptates quis repellendus sint, repudiandae dignissimos fuga aperiam laborum repellat est quia nemo explicabo et velit voluptatibus!"
-        }
-    ]
+  "projects": [
+    {
+      "id": "1",
+      "title": "Project 1",
+      "details": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta non ut, placeat ducimus, voluptates quis repellendus sint, repudiandae dignissimos fuga aperiam laborum repellat est quia nemo explicabo et velit voluptatibus!"
+    },
+    {
+      "id": "2",
+      "title": "Project 2",
+      "details": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta non ut, placeat ducimus, voluptates quis repellendus sint, repudiandae dignissimos fuga aperiam laborum repellat est quia nemo explicabo et velit voluptatibus!"
+    },
+    {
+      "id": "3",
+      "title": "Project 3",
+      "details": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta non ut, placeat ducimus, voluptates quis repellendus sint, repudiandae dignissimos fuga aperiam laborum repellat est quia nemo explicabo et velit voluptatibus!"
+    },
+    {
+      "id": "6",
+      "title": "Project 6",
+      "details": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta non ut, placeat ducimus, voluptates quis repellendus sint, repudiandae dignissimos fuga aperiam laborum repellat est quia nemo explicabo et velit voluptatibus!"
+    }
+  ]
 }
