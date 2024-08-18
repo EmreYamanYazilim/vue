@@ -1,8 +1,12 @@
 <template>
   <div class="home">
     <div v-if="projects.length">
-      <div v-for="project in projects" :key="project.id" >
-        <SingleProject :project="project" @delete="silinenVeri"></SingleProject>
+      <div v-for="project in projects" :key="project.id">
+        <SingleProject 
+        :project="project" 
+        @delete="silinenVeri" 
+        @complete="tamamlananVeri"
+        ></SingleProject>
       </div>
     </div>
   </div>
@@ -29,12 +33,15 @@ export default {
   },
   methods: {
     silinenVeri(id) {
-        this.projects = this.projects.filter(project =>project.id !== id);  // arrow fun 
-      
-        //uzun yontem
+      this.projects = this.projects.filter(project => project.id !== id);  // arrow fun 
+      //uzun yontem
       // this.projects = this.projects.filter(function (project) {  // uzun yöntem
       //   return project.id !== id
       // })
+    },
+    tamamlananVeri(id){
+      let p = this.projects.find(projectx=>projectx.id ===id);
+      p.complete = !p.complete
     }
   },
 }
