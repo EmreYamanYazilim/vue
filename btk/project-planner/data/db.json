@@ -28,7 +28,7 @@
       "id": "5",
       "title": "Project 5",
       "details": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta non ut, placeat ducimus, voluptates quis repellendus sint, repudiandae dignissimos fuga aperiam laborum repellat est quia nemo explicabo et velit voluptatibus!",
-      "complete": false
+      "complete": true
     }
   ]
 }

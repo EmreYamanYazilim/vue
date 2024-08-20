@@ -42,6 +42,7 @@ form {
   background: white;
   padding: 20px;
   border-radius: 10px;
+  margin-top: 15px;
 }
 
 label {

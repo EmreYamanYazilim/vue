@@ -3,7 +3,7 @@
         <div class="actions">
             <h2 @click="showDetails = !showDetails">{{ project.title }}</h2>
             <div class="icons">
-                <span class="material-icons">edit</span>
+                <router-link :to="{name:'EditProject',params:{id:project.id} }"><span class="material-icons">edit</span></router-link>
                 <span @click="deleteProject" class="material-icons">delete</span>
                 <span v-if="!project.complete" @click="togglecomplete" class="material-icons tick">check</span>
                 <span v-else-if="project.complete" @click="togglecomplete" class="material-icons close">close</span>
