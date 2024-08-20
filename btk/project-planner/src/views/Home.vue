@@ -20,9 +20,9 @@ export default {
   components: {
     SingleProject
   },
-  data() {
+  data() {  
     return {
-      projects: []
+      projects: [],
     }
   },
   mounted() {
@@ -47,4 +47,11 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.router-link-active {
+  background-color: hsla(160, 100%, 37%, 0.2);
+  border-radius: 5px;
+  
+
+}
+</style>
