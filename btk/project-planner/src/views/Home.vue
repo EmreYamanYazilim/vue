@@ -2,7 +2,7 @@
   <div class="home">
     <FilterNav @filterChange="current = $event" :current='current'></FilterNav>
     <div v-if="projects.length">
-      <div v-for="project in projects" :key="project.id">
+      <div v-for="project in filtiredProject" :key="project.id">
         <SingleProject 
         :project="project" 
         @delete="silinenVeri" 
@@ -48,6 +48,17 @@ export default {
       p.complete = !p.complete
     }
   },
+  computed: {
+    filtiredProject() {
+      if (this.current === 'completed') {
+        return this.projects.filter(project => project.complete);
+      }
+      else if (this.current === 'ongoing') {
+        return this.projects.filter(project => !project.complete);
+      }
+      return this.projects;
+    },
+  }
 }
 </script>
 
@@ -55,7 +66,5 @@ export default {
 .router-link-active {
   background-color: hsla(160, 100%, 37%, 0.2);
   border-radius: 5px;
-  
-
 }
 </style>
