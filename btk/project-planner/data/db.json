@@ -4,7 +4,7 @@
       "id": "1",
       "title": "Project 1",
       "details": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta non ut, placeat ducimus, voluptates quis repellendus sint, repudiandae dignissimos fuga aperiam laborum repellat est quia nemo explicabo et velit voluptatibus!",
-      "complete": false
+      "complete": true
     },
     {
       "id": "2",
@@ -16,18 +16,18 @@
       "id": "3",
       "title": "Project 3",
       "details": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta non ut, placeat ducimus, voluptates quis repellendus sint, repudiandae dignissimos fuga aperiam laborum repellat est quia nemo explicabo et velit voluptatibus!",
-      "complete": false
+      "complete": true
     },
     {
       "id": "4",
       "title": "Project 4",
       "details": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta non ut, placeat ducimus, voluptates quis repellendus sint, repudiandae dignissimos fuga aperiam laborum repellat est quia nemo explicabo et velit voluptatibus!",
-      "complete": true
+      "complete": false
     },
     {
       "id": "5",
-      "title": "Project 5555",
-      "details": "5555Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta non ut, placeat ducimus, voluptates quis repellendus sint, repudiandae dignissimos fuga aperiam laborum repellat est quia nemo explicabo et velit voluptatibus!",
+      "title": "Project 55557777779999999",
+      "details": "999999777775555Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta non ut, placeat ducimus, voluptates quis repellendus sint, repudiandae dignissimos fuga aperiam laborum repellat est quia nemo explicabo et velit voluptatibus!",
       "complete": true
     }
   ]

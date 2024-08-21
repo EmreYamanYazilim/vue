@@ -2,7 +2,7 @@
     <nav class="filter-nav">
         <button @click="updateFilter('all')" :class="{ active: current === 'all' }">all</button>
         <button @click="updateFilter('completed')" :class="{active: current === 'completed'}">Tamamalanan</button>
-        <button @click="updateFilter('ongoing')" :class="{active:current === 'ongoing'}">ongoing</button>
+        <button @click="updateFilter('ongoing')" :class="{active:current === 'ongoing'}">Devam Eden</button>
 
     </nav>
 </template>
