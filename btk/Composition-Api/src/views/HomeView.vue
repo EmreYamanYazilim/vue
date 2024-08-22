@@ -1,9 +1,8 @@
 <template>
 <div>
-  <p>{{ name }} - {{ surname }}</p>
-  <p ref="info">Deneme</p>  <!-- bize p tagıyla beraber deneme yazsının getirir -->
+  <p>{{ name }}</p>
   <button @click="clicked" ref="info">Click</button> <!-- btn ile alakalı olan eventleri özellikleri bana getirir --> 
-
+  <input type="text" v-model="name"> <!-- yine aynı şekilde input içindede click yaptığımda yazıyı değiştirebiliyoruz-->
 </div>
 </template>
 
@@ -14,15 +13,14 @@ export default {
   name: "HomeView",
   components: {},
   setup() {
-    let name = "emre";
-    let surname = "Yaman";
-    // aynı şekilde bir methodda kullanabilioruz  const olarak methodu belirleyerek 
+    let name = ref("emre");
     const clicked = () => {
-      console.log(info, info.value);
-      // info ile  bana bir obje döndürüyor  obje içinde direk null olduğunuda görebiliriz  info value direk null döndürüyor     
+      name.value ="Senior Developer Emre YAMAN"; // veriyi dğeiştirmek istediğimizde  ve yukarıda göstermek istedğimide değşkene tanımlarken ref parantezinde tanımlayarak yukarıda göstermemiz içinde turn içinde değişkenin adını veriyoruz  akabinde değiştirmek istediğimiz dğeişkeni  clicked fn içinde name.value ="" yazarak değiştirmek istediğimiz değeri ekliyoruz  böylelikle button tıklandığında değişecek
+      console.log(name, name.value);
+      
+      
     }
-    const info = ref(null)// varsayılan boş olarak belirkedim
-    return{name,surname,clicked,info} //  constun altında olacak   değişkenlerimöizi burdan alarak yukarıda gösterebiliyoruz 
+    return{name,clicked,} //  constun altında olacak   değişkenlerimöizi burdan alarak yukarıda gösterebiliyoruz 
 // data return yerine setup içinde değişkenlerimizi belirterek kullanabiliyoruz
   }
 }
