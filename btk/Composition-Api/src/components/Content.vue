@@ -13,22 +13,10 @@
 
 <script>
 import { ref } from 'vue';
+import getContentsFetch from '@/composables/getContentFetch';
 export default {
     setup() {
-        const contents = ref([]);
-        const err = ref(null);
-        const getContents = async () => {
-            try {
-                let data = await fetch("https://jsonplaceholder.typicode.com/posts")
-                contents.value = await data.json();
-
-                if (!data.ok) {
-                    throw new Error("Bir hata olustu");
-                }
-            } catch (error) {
-                err.value = error.message;
-            }
-        }
+        const { contents, err, getContents } = getContentsFetch();
         getContents();
         return { contents, err }
     }
