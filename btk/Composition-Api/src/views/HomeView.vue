@@ -1,44 +1,25 @@
 <template>
   <div>
-    <input type="text" v-model="search">
-    <div v-for="day in finded" :key="day.id">
-      {{ day }}
-    </div>
-    <button @click="stop">Stop</button>
+    <Contents :iceriklerim="icerik"></Contents>
   </div>
 </template>
+
 <script>
 import { ref, computed, watch, watchEffect } from 'vue';
+import  Contents  from '../components/Content.vue';
 
 export default {
   name: "HomeView",
-  components: {},
+  components: { Contents },
   setup() {
-    const days = ref([
-      "pazartesi",
-      "salı",
-      "çarsamba",
-      "persembe",
-      "cuma",
-      "cumartesi",
-      "pazar"]);
-    const search = ref('');
-    const finded = computed(() => days.value.filter((day) => day.includes(search.value)));
-
-    const watchS = watch(search, () => {
-      console.log("Watch çalıştı...");
-      
-    });
-    const watchEfect = watchEffect(() => {
-      console.log("WatchEffect days çalıştı...", days.value);
-      console.log("WatchEffect search çalıştı...", search.value);
-    });
-    const stop = () => {
-      watchS();
-      watchEfect();
-    }
-
-    return { days, search, finded, stop }
+    const icerik = ref([
+      { id: 1, title: "Deneme1", details: "detay1" },
+      { id: 2, title: "Deneme2", details: "detay2" },
+      { id: 3, title: "Deneme3", details: "detay3" },
+      { id: 4, title: "Deneme4", details: "detay4" }
+    ]);
+    return { icerik}
+    
   }
 }
 </script>
