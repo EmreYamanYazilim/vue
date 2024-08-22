@@ -4,10 +4,11 @@
     <div v-for="day in finded" :key="day.id">
       {{ day }}
     </div>
+    <button @click="stop">Stop</button>
   </div>
 </template>
 <script>
-import { ref,computed } from 'vue';
+import { ref, computed, watch, watchEffect } from 'vue';
 
 export default {
   name: "HomeView",
@@ -22,8 +23,22 @@ export default {
       "cumartesi",
       "pazar"]);
     const search = ref('');
-    const finded = computed(()=> days.value.filter((day) => day.includes(search.value)));
-    return { days,search,finded }  
+    const finded = computed(() => days.value.filter((day) => day.includes(search.value)));
+
+    const watchS = watch(search, () => {
+      console.log("Watch çalıştı...");
+      
+    });
+    const watchEfect = watchEffect(() => {
+      console.log("WatchEffect days çalıştı...", days.value);
+      console.log("WatchEffect search çalıştı...", search.value);
+    });
+    const stop = () => {
+      watchS();
+      watchEfect();
+    }
+
+    return { days, search, finded, stop }
   }
 }
 </script>
