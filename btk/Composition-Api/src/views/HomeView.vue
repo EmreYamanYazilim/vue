@@ -1,29 +1,29 @@
 <template>
-<div>
-  <p>{{ job.name }} - {{ job.job }}</p>
-  <button @click="clicked" ref="info">Click</button> <!-- btn ile alakalı olan eventleri özellikleri bana getirir --> 
-</div>
+  <div>
+    <input type="text" v-model="search">
+    <div v-for="day in finded" :key="day.id">
+      {{ day }}
+    </div>
+  </div>
 </template>
-
 <script>
-import { reactive } from 'vue';
+import { ref,computed } from 'vue';
 
 export default {
   name: "HomeView",
   components: {},
   setup() {
-    let job = reactive({
-      name: "emre",
-      job: "10x hızında öğrenen ve kodlayan bir yazılımcı",
-    }); // bize direk yukarıda veriyi vermemize imkan sağlar 
-    const clicked = () => {
-      job.name = "Senior Developer Emre  YAMAN";
-      job.job = "10x hızında öğrenen ve kodlayan bir yazılımcı  ve çok kazanan yazılımcı";
-      //  obje olarak döndüğü için obje adı ve içindeki objeleri belirterek göstertiyoruz     
-    }
-    return{job,clicked,} //  constun altında olacak   değişkenlerimöizi burdan alarak yukarıda gösterebiliyoruz 
-// data return yerine setup içinde değişkenlerimizi belirterek kullanabiliyoruz
+    const days = ref([
+      "pazartesi",
+      "salı",
+      "çarsamba",
+      "persembe",
+      "cuma",
+      "cumartesi",
+      "pazar"]);
+    const search = ref('');
+    const finded = computed(()=> days.value.filter((day) => day.includes(search.value)));
+    return { days,search,finded }  
   }
 }
-
 </script>
