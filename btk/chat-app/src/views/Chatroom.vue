@@ -1,6 +1,6 @@
 <template>
-  <div>
-    
+    <div class="chatroom container">
+    chat
   </div>
 </template>
 
@@ -10,6 +10,9 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.chatroom{
+    text-align: center;
+    padding: 20px 0;
+}
 </style>

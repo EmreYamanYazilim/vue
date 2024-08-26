@@ -22,6 +22,9 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <style scoped>
 header {
+  display: flex;
+  justify-content: space-between;
+  place-items: center;
   line-height: 1.5;
   max-height: 100vh;
 }
@@ -32,6 +35,7 @@ header {
 }
 
 nav {
+
   width: 100%;
   font-size: 12px;
   text-align: center;

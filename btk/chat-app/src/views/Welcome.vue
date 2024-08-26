@@ -1,6 +1,6 @@
 <template>
     <div class="welcome container">
-        
+        Home
     </div> 
 </template>
 
