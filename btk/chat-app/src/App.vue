@@ -4,14 +4,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
   <div>
-    <header>
-      <div class="wrapper">
-        <nav>          
-          <RouterLink to="/">Anasayfa</RouterLink>
-          <RouterLink to="/chatroom">Sohbet Odası</RouterLink>
-        </nav>
-      </div>
-    </header>
+
     <RouterView />
   </div>
 </template>

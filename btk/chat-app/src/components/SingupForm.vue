@@ -1,5 +1,6 @@
 <template>
-    <div>
+    <div>   
+        <h2>Kayıt Ol</h2>
         <form @submit.prevent="handleSubmit">
             <input type="text" v-model="displayName" required placeholder="Kullanıcı Adınızı Giriniz">
             <input type="email" placeholder="Email Adresinizi Giriniz" required v-model="email">
