@@ -24,6 +24,7 @@ const signup = async (email, password, displayName) => {
 };
 const useSignup = () => {
     //useSignup, error ve signup fonksiyonlarını geri döndürür, böylece bu veriler ve fonksiyonlar Vue bileşenlerinde kullanılabilir hale gelir.
+    // signup ve error'u   return ederek export default yaparak onları başka bir yere göndermek için işlem yapıyoruz
     return { error, signup }
 };
 export default useSignup;
