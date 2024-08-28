@@ -4,6 +4,7 @@
             <input type="text" v-model="displayName" required placeholder="Kullanıcı Adınızı Giriniz">
             <input type="email" placeholder="Email Adresinizi Giriniz" required v-model="email">
             <input type="password" placeholder="Sifrenizi Giriniz" required v-model="password">
+            <div class="error" v-if="error">{{ error }}</div> 
             <button>Kayıt ol</button>
         </form>
     </div>
@@ -23,9 +24,10 @@ export default {
             await signup(email.value, password.value,displayName.value)
 
         }
-        return { displayName, email, password, handleSubmit }
+        return { displayName, email, password, handleSubmit,error }
     }
 }
 </script>
 
-<style></style>
+<style>
+</style>
