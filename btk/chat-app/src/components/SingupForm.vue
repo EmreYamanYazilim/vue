@@ -11,19 +11,18 @@
 
 <script>
 import { ref } from 'vue'
-
+import useSignup from '@/composables/useSingup';
 
 export default {
     setup() {
+        const {error,signup} = useSignup() // composable useSingup.js içindeki fn ile  Auth işlemelerini vermek için çektik eroor ve signup'u useSignup içinden return ederek fn içinde yakladım
         const displayName = ref('')
         const email = ref('')
         const password = ref('')
-        const handleSubmit = () => {
-            console.log(displayName.value, email.value, password.value);
+        const handleSubmit = async () => {
+            await signup(email.value, password.value,displayName.value)
 
         }
-
-
         return { displayName, email, password, handleSubmit }
     }
 }
