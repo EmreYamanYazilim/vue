@@ -1,21 +1,22 @@
 <template>
     <div class="">
-        <nav>
+        <nav v-if="user"> <!-- user varsayı koymazsam hata verip boş döndürüyor-->
             <div>
-                <p>Merhaba 'DisplayName'</p>
-                <p class="email">şu anda 'Email' ile oturum açıldı</p>
+                <p>Merhaba <span>{{ user.displayName }}</span></p>
+                <p class="email">şu anda <span>{{ user.email }}</span> ile oturum açıldı</p>
             </div>
             <button class="pointer" @click="handleClick">Çıkış</button>
-
         </nav>
     </div>
 </template>
 
 <script>
 import useLogout from '@/composables/useLogout';
+import getUser from '@/composables/getUser';
 export default {
     setup() {
         const { error, logout } = useLogout();
+        const {user} = getUser();
         const handleClick = async () => {
             await logout();
             if (!error.value) {
@@ -23,7 +24,7 @@ export default {
                 
             }
         }
-        return { error, handleClick }
+        return { error, handleClick,user }
     }
 
 }
@@ -51,5 +52,9 @@ nav p.email {
 }
 .pointer{
     cursor: pointer;
+}
+p span {
+    color: rgb(4, 3, 65);
+    font-weight: 600;
 }
 </style>
