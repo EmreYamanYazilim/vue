@@ -3,7 +3,9 @@
     <textarea 
     v-model="message"
     @keypress.enter.prevent ="handleSubmit"
-    placeholder="Enter'a basarak chat ekleyebilirsiniz"></textarea>
+    placeholder="Enter'a basarak chat ekleyebilirsiniz">
+    </textarea>
+    <div class="error">{{  error }}</div>
   </form>
 </template>
 
@@ -11,23 +13,26 @@
 import { ref } from "vue";
 import getUser from "@/composables/getUser";
 import { timestamp } from "@/firebase/config";
+import useCollection from "@/composables/useCollections";
 export default {
     setup() {
         const {user} = getUser();
         const message = ref('');
+        const {addDoc ,error} = useCollection("messagesPath"); // messages  firebasedeki DB'de ki key'im valueside chat içidir
         const handleSubmit = async () => {
             const chat = {
                 message: message.value,
                 name: user.value.displayName,
                 createdAt: timestamp(),
             }
-            console.log(chat);
-            message.value = ""; 
-            
+            await addDoc(chat);
+            if (!error.value) {
+                message.value = ""; 
+            }      
         }
 
 
-        return {message, user,handleSubmit}
+        return {message, user,handleSubmit,error}
     }
 
 }
