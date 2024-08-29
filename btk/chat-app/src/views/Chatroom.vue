@@ -1,6 +1,7 @@
 <template>
   <div class="chatroom container">
     <Navbar />
+    <NewChatForm></NewChatForm>
   </div>
 </template>
 
@@ -9,8 +10,9 @@ import Navbar from '@/views/Navbar.vue';
 import getUser from '@/composables/getUser';
 import { watch } from 'vue';
 import { useRouter } from 'vue-router';
+import NewChatForm from '@/components/NewChatForm.vue'; 
 export default {
-  components: { Navbar },
+  components: { Navbar,NewChatForm },
   setup() {
     const {user} = getUser();
     const router = useRouter();
