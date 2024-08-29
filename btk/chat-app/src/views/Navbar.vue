@@ -21,9 +21,9 @@ export default {
         const router = useRouter();
         const handleClick = async () => {
             await logout();
-            if (!error.value) {
-                console.log('güvenli çıkış yapıldı');               
-            }
+            // if (!error.value) {
+            //     console.log('güvenli çıkış yapıldı');               
+            // }
             router.push({ name: 'welcome'})
         }
         return { error, handleClick,user }

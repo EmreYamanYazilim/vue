@@ -5,9 +5,8 @@ import { projectAuth } from '@/firebase/config'
 //to nereye  from nerden  ve next
 const requireAuth = (to, from, next) => {
   let user = projectAuth.currentUser
-  console.log('genel kullanıcı', user);
   if (!user) {
-    next({ name: welcome })
+    next({ name: 'welcome' })
   }else {
     next();
   }
