@@ -4,7 +4,7 @@
             {{ error }}
         </div>
         <h1>yazışma bölümü</h1>
-        <div v-if="documents" class="messages">
+        <div v-if="documents" class="messages" ref="messages">
             <div v-for="document in documents" :key="document.id" class="single">
                 <!-- <span class="created-at">{{ document.createdAt.toDate() }}</span> -->
                 <!-- Tarih saat bölümünü Tr göre ayarladım-->
@@ -29,15 +29,19 @@
 </template>
 
 <script>
-import getCollection from '@/composables/getcollection';
-
+import getCollection from '@/composables/getCollection';
+//scroll için yukarıdaki ref ile beraber yaptık
+import { ref, onUpdated } from 'vue';
 
 export default {
     setup() {
         const { error, documents } = getCollection("messagesPath")
-
-
-        return { error, documents }
+        //scroll altta son yazılana götürme
+        const messages = ref(null);
+        onUpdated(() => {
+            messages.value.scrollTop = messages.value.scrollHeight
+        })
+        return { error, documents, messages }
     }
 }
 </script>
@@ -47,7 +51,6 @@ h1 {
     color: #333;
     text-align: center;
     margin: 0 auto;
-    border-bottom: #999 solid 1px;
     padding-bottom: 10px;
 }
 
@@ -55,6 +58,10 @@ h1 {
     background: #fafafa;
     padding: 30px 20px;
     text-align: left;
+    word-wrap: break-word;
+    /* Uzun kelimeleri bölmek için */
+    /* word-break: break-all; */
+    /* Gerekirse kelimeleri bölmek için */
 }
 
 .single {
@@ -78,6 +85,6 @@ h1 {
 
 .messages {
     max-height: 400px;
-    overflow: auto;
+    overflow: hidden auto;
 }
 </style>
